@@ -110,6 +110,36 @@
     }
   },
   {
+  "name": "FinanceTracker",
+  "desc": "A simple web app built with C# and .NET 8 to track income and expenses, categorize transactions, view balances, and generate monthly reports, with data saved locally in a JSON file.",
+  "image": "financetrack",
+  "category": "web",
+  "links": {
+    "view": "https://github.com/rider315/finance_tracker",
+    "code": "https://github.com/rider315/finance_tracker"
+  }
+},
+{
+  "name": "Finance Tracker",
+  "desc": "A modern web app built with C#, ASP.NET Core, and Blazor Server on .NET 8. It allows users to track income and expenses, categorize transactions, view current balances, filter transactions by category, and generate detailed monthly reports. Data is persisted locally in a JSON file, with a responsive Bootstrap 5 frontend for an attractive user experience.",
+  "image": "shapecalci",
+  "category": "web",
+  "links": {
+    "view": "https://github.com/rider315/shapecalci",
+    "code": "https://github.com/rider315/shapecalci"
+  }
+},
+{
+  "name": "CareMate",
+  "desc": "A Django-based web application designed for healthcare management. It offers features like diet recommendations using a machine learning model (LightGBM), symptom-based disease prognosis, patient and doctor dashboards, insurance plan information, and WhatsApp integration for communication. The app uses Bootstrap for a responsive frontend, with data stored in CSV and pickled model files, and includes a robust admin interface for management.",
+  "image": "caremate",
+  "category": "web",
+  "links": {
+    "view": "https://care-hospital-7kzk.onrender.com/",
+    "code": "https://github.com/rider315/care_hospital"
+  }
+},
+  {
     "name": "First Portfolio Website",
     "desc": "My initial portfolio website, built using simple HTML, CSS, and JavaScript, hosted on AWS S3.",
     "image": "firstportfolio",
