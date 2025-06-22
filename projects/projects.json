@@ -111,7 +111,7 @@
   },
   {
   "name": "FinanceTracker",
-  "desc": "A simple web app built with C# and .NET 8 to track income and expenses, categorize transactions, view balances, and generate monthly reports, with data saved locally in a JSON file.",
+  "desc": "A C# and .NET 8 web app for tracking income and expenses, with local JSON data storage.",
   "image": "financetrack",
   "category": "web",
   "links": {
@@ -120,8 +120,8 @@
   }
 },
 {
-  "name": "Finance Tracker",
-  "desc": "A modern web app built with C#, ASP.NET Core, and Blazor Server on .NET 8. It allows users to track income and expenses, categorize transactions, view current balances, filter transactions by category, and generate detailed monthly reports. Data is persisted locally in a JSON file, with a responsive Bootstrap 5 frontend for an attractive user experience.",
+  "name": "Shape Calculator",
+  "desc": "A C# and ASP.NET Core web app for tracking income and expenses, featuring local JSON storage and a Bootstrap 5 frontend.",
   "image": "shapecalci",
   "category": "web",
   "links": {
@@ -131,7 +131,7 @@
 },
 {
   "name": "CareMate",
-  "desc": "A Django-based web application designed for healthcare management. It offers features like diet recommendations using a machine learning model (LightGBM), symptom-based disease prognosis, patient and doctor dashboards, insurance plan information, and WhatsApp integration for communication. The app uses Bootstrap for a responsive frontend, with data stored in CSV and pickled model files, and includes a robust admin interface for management.",
+  "desc": "A Django healthcare app with AI diet recommendations, disease prediction, dashboards, and WhatsApp integration.",
   "image": "caremate",
   "category": "web",
   "links": {
