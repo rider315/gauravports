@@ -1,0 +1,112 @@
+[
+  {
+    "name": "MERN Stack Application with Admin Panel",
+    "desc": "A full-stack blogging platform with user authentication, admin panel, and content management via Sanity IO.",
+    "image": "ridescom",
+    "category": "mern",
+    "links": {
+      "view": "https://www.ridescom.com/",
+      "code": "https://github.com/rider315/newgit"
+    }
+  },
+  {
+    "name": "Android Application for Managing Academics",
+    "desc": "An Android app for managing academic resources, featuring 1000+ exam papers and Firebase authentication.",
+    "image": "lastoneimage",
+    "category": "android",
+    "links": {
+      "view": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN",
+      "code": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN"
+    }
+  },
+  {
+    "name": "Smart Object Detection System",
+    "desc": "Real-time object detection system using OpenCV and ESP32 CAM for optimized performance and video analysis.",
+    "image": "objectdetect",
+    "category": "basicweb",
+    "links": {
+      "view": "https://ieeexplore.ieee.org/document/10574574",
+      "code": "https://ieeexplore.ieee.org/document/10574574"
+    }
+  },
+  {
+    "name": "Dynamic Exam Paper Distribution System",
+    "desc": "Web and Android system for dynamic exam paper distribution, featuring AWS S3 uploads and Firebase sync.",
+    "image": "paperupload",
+    "category": "mern",
+    "links": {
+      "view": "https://lastone-admin-315.vercel.app/",
+      "code": "https://github.com/rider315/lastone_admin"
+    }
+  },
+  {
+    "name": "Optimized Train Seat Allocation System",
+    "desc": "MERN stack system for train seat management with real-time availability and intelligent allocation logic.",
+    "image": "trainseat",
+    "category": "mern",
+    "links": {
+      "view": "https://frontend-a7ch.onrender.com/",
+      "code": "https://github.com/rider315/frontend"
+    }
+  },
+  {
+    "name": "Kanban Board",
+    "desc": "React.js Kanban Board application for efficient task management, featuring customizable grouping and sorting.",
+    "image": "kanban",
+    "category": "mern",
+    "links": {
+      "view": "https://kanbanboard.site/",
+      "code": "https://github.com/rider315/kanbanss"
+    }
+  },
+  {
+    "name": "Data Processing API and Frontend: Full Stack Project",
+    "desc": "Full-stack app with a REST API for data processing and a user-friendly frontend for data visualization.",
+    "image": "bajajhealth",
+    "category": "mern",
+    "links": {
+      "view": "https://bajaj-frontend-voc5.vercel.app/",
+      "code": "https://github.com/rider315/gauravtodo"
+    }
+  },
+  {
+    "name": "A Simple Version of a TODO APP",
+    "desc": "A MERN stack based TODO app, which performs simple CURD operations on TODO's.",
+    "image": "todoapp",
+    "category": "mern",
+    "links": {
+      "view": "https://gaurav-todo.onrender.com/",
+      "code": "https://github.com/rider315/gaurav_todo"
+    }
+  },
+  {
+    "name": "PsychiAssist",
+    "desc": "An online platform using a sophisticated algorithm to predict the level of neurological disorders in individuals.",
+    "image": "pyschiassist",
+    "category": "basicweb",
+    "links": {
+      "view": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html",
+      "code": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html"
+    }
+  },
+  {
+    "name": "Flipkart Clone",
+    "desc": "A fully responsive MVP version of Flipkart, featuring basic e-commerce website functionalities.",
+    "image": "flipkartimage",
+    "category": "basicweb",
+    "links": {
+      "view": "https://github.com/rider315/Flipkart_Clone",
+      "code": "https://github.com/rider315/Flipkart_Clone"
+    }
+  },
+  {
+    "name": "First Portfolio Website",
+    "desc": "My initial portfolio website, built using simple HTML, CSS, and JavaScript, hosted on AWS S3.",
+    "image": "firstportfolio",
+    "category": "basicweb",
+    "links": {
+      "view": "http://www.gauravchaudhary.online.s3-website.ap-south-1.amazonaws.com/",
+      "code": "http://www.gauravchaudhary.online.s3-website.ap-south-1.amazonaws.com/"
+    }
+  }
+]
