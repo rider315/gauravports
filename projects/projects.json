@@ -99,6 +99,16 @@
       "code": "https://github.com/rider315/Flipkart_Clone"
     }
   },
+      {
+    "name": "Top ATS Resume",
+    "desc": "Full-stack app for creating LaTeX-based resumes with secure authentication and efficient rendering.",
+    "image": "topatsresume",
+    "category": "mern",
+    "links": {
+      "view": "https://gauravportfolio-10r2.onrender.com/",
+      "code": "https://github.com/rider315/top_ats_resume"
+    }
+  },
   {
     "name": "First Portfolio Website",
     "desc": "My initial portfolio website, built using simple HTML, CSS, and JavaScript, hosted on AWS S3.",
