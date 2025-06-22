@@ -5,7 +5,7 @@
     "image": "ridescom",
     "category": "mern",
     "links": {
-      "view": "https://www.ridescom.com/",
+      "view": "https://ridescom.vercel.app/",
       "code": "https://github.com/rider315/newgit"
     }
   },
@@ -105,7 +105,7 @@
     "image": "topatsresume",
     "category": "mern",
     "links": {
-      "view": "https://gauravportfolio-10r2.onrender.com/",
+      "view": "https://top-ats-resume.vercel.app/",
       "code": "https://github.com/rider315/top_ats_resume"
     }
   },
