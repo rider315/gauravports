@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Gaurav Portfolio</title>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <!-- navbar starts -->
+  <header>
+    <a href="/" class="logo"><i class="fab fa-node-js"></i> Gaurav</a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#skills">Skills</a></li>
+        <li><a href="/#education">Education</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a class="active" href="/blog.html">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- navbar ends -->
+
+  <!-- blog section starts -->
+  <section class="blog" id="blog" style="margin-top: 8rem;">
+    <h2 class="heading"><i class="fas fa-blog"></i> My <span>Blog</span></h2>
+    <p class="blog-subtitle">Thoughts, tutorials, and insights about web development</p>
+    <div class="blog-container" id="blogContainer">
+      <p class="blog-loading"><i class="fas fa-spinner fa-spin"></i> Loading blog posts...</p>
+    </div>
+  </section>
+  <!-- blog section ends -->
+
+  <!-- footer section starts -->
+  <footer class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Gaurav's Portfolio</h3>
+        <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀</p>
+      </div>
+
+      <div class="box">
+        <h3>quick links</h3>
+        <a href="/#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+        <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+        <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+        <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+        <a href="/#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+        <a href="/#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+      </div>
+
+      <div class="box">
+        <h3>contact info</h3>
+        <p> <i class="fas fa-envelope"></i>youremail@gmail.com</p>
+        <p> <i class="fas fa-map-marked-alt"></i>India</p>
+        <div class="share">
+          <a href="#" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+          <a href="#" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+          <a href="#" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+          <a href="#" class="fab fa-instagram" aria-label="Instagram" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+    <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="#"> Gaurav</a></h1>
+  </footer>
+  <!-- footer section ends -->
+
+  <!-- scroll top btn -->
+  <a href="#blog" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+
+  <!-- jquery cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- custom js -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Contentful SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
+  <!-- Contentful config (ADD THIS) -->
+  <script src="./assets/js/contentful-config.js"></script>
+
+  <!-- Blog JS -->
+  <script src="./assets/js/blog-all.js"></script>
+</body>
+</html>

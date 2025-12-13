@@ -1,0 +1,14 @@
+# Environment variables
+.env
+.env.local
+
+# Generated config (will be built on Render)
+assets/js/contentful-config.js
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db

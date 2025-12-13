@@ -24,7 +24,9 @@
             <li><a href="#education">Education</a></li>
             <li><a href="/projects">Work</a></li>
             <li><a href="/experience">Experience</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
+
         </ul>
     </nav>
 </header>
@@ -143,6 +145,20 @@
     </div>
 </section>
 
+<section class="blog" id="blog">
+    <h2 class="heading"><i class="fas fa-blog"></i> My <span>Blog</span></h2>
+    <p class="blog-subtitle">Thoughts, tutorials, and insights about web development</p>
+    <div class="blog-container" id="blogContainer">
+        <!-- Blog posts will be dynamically loaded here -->
+    </div>
+    <!-- ✅ CORRECT -->
+<div class="viewall">
+    <a href="blog.html" class="btn"><span>View All Posts</span><i class="fas fa-arrow-right"></i></a>
+</div>
+
+</section>
+
+
 <section class="contact" id="contact">
     <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
     <div class="container">
@@ -217,5 +233,13 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="./assets/js/script.js"></script>
+<!-- Add before other script tags -->
+ <script src="./assets/js/contentful-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+<!-- Add after other script tags -->
+<script src="./assets/js/blog.js"></script>
+
+
+
 </body>
 </html>

@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio Website by Gaurav Chaudhary",
+  "scripts": {
+    "build": "node generate-config.js"
+  }
+}
