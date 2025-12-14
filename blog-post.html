@@ -30,6 +30,28 @@
 </head>
 
 <body>
+
+  <!-- navbar starts -->
+  <header>
+    <a href="index.html#home" class="logo"><i class="fab fa-node-js"></i> Gaurav</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="projects/index.html">Work</a></li>
+        <li><a href="experience/index.html">Experience</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- navbar ends -->
+
   <main class="blog" style="min-height: 80vh; padding-top: 8rem;">
     <h2 class="heading">Blog <span>Post</span></h2>
 
@@ -43,5 +65,24 @@
 
   <!-- Blog post script (LOAD AFTER config) -->
   <script src="./assets/js/blog-post.js"></script>
+
+  <!-- Navbar toggle for this page (keeps it independent from assets/js/script.js) -->
+  <script>
+    const menu = document.getElementById('menu');
+    const navbar = document.querySelector('.navbar');
+
+    if (menu && navbar) {
+      menu.addEventListener('click', () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('nav-toggle');
+      });
+
+      window.addEventListener('scroll', () => {
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('nav-toggle');
+      });
+    }
+  </script>
+
 </body>
 </html>

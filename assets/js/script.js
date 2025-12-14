@@ -29,13 +29,22 @@ $(document).ready(function () {
         });
     });
 
-    // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
+    // smooth scrolling (ONLY same-page hash links)
+$('a[href^="#"]').on('click', function (e) {
+    const targetId = $(this).attr('href'); // e.g. "#about"
+    const $target = $(targetId);
+
+    // Only prevent default if the target exists on this page
+    if ($target.length) {
         e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
-    });
+        $('html, body').animate(
+            { scrollTop: $target.offset().top },
+            500,
+            'linear'
+        );
+    }
+});
+
 
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
@@ -90,18 +99,27 @@ async function fetchData(type = "skills") {
 }
 
 function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
-    skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
-    });
-    skillsContainer.innerHTML = skillHTML;
+  const skillsContainer = document.getElementById("skillsContainer");
+  if (!skillsContainer) return;
+
+  let skillHTML = "";
+
+  skills.forEach(skill => {
+    const iconHTML = skill.faIcon
+      ? `<i class="${skill.faIcon}"></i>`
+      : `<img src="${skill.icon || ''}" alt="skill"
+              onerror="this.onerror=null; this.src='./assets/images/cmsoon.png';" />`;
+
+    skillHTML += `
+      <div class="bar">
+        <div class="info">
+          ${iconHTML}
+          <span>${skill.name}</span>
+        </div>
+      </div>`;
+  });
+
+  skillsContainer.innerHTML = skillHTML;
 }
 
 function showProjects(projects) {

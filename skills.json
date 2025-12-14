@@ -1,54 +1,41 @@
 [
-    {
-      "name": "HTML5",
-      "icon": "https://img.icons8.com/color/48/000000/html-5.png"
-    },
-    {
-      "name": "CSS",
-      "icon": "https://img.icons8.com/color/48/000000/css3.png"
-    },
-    {
-      "name": "Bootstrap",
-      "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
-    },
-    {
-      "name": "JavaScript",
-      "icon": "https://img.icons8.com/color/48/000000/javascript.png"
-    },
-    {
-      "name": "ReactJS",
-      "icon": "https://img.icons8.com/color/48/000000/react-native.png"
-    },
-    {
-      "name": "NodeJs",
-      "icon": "https://img.icons8.com/color/48/000000/nodejs.png"
-    },
-    {
-      "name": "MongoDB",
-      "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
-    },
-    {
-      "name": "Express",
-      "icon": "https://img.icons8.com/color/48/000000/express.png"
-    },
-    {
-      "name": "C/C++",
-      "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
-    },
-    {
-      "name": "Python",
-      "icon": "https://img.icons8.com/color/48/000000/python.png"
-    },
-    {
-      "name": "Java",
-      "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png"
-    },
-    {
-      "name": "SQL",
-      "icon": "https://img.icons8.com/color/48/000000/sql.png"
-    },
-    {
-      "name": "DSA",
-      "icon": "https://img.icons8.com/color/48/000000/data-structures.png" 
-    }
-  ]
+  { "name": "HTML5", "icon": "https://img.icons8.com/color/48/000000/html-5.png" },
+  { "name": "CSS", "icon": "https://img.icons8.com/color/48/000000/css3.png" },
+  { "name": "Bootstrap", "icon": "https://img.icons8.com/color/48/000000/bootstrap.png" },
+  { "name": "JavaScript", "icon": "https://img.icons8.com/color/48/000000/javascript.png" },
+  { "name": "ReactJS", "icon": "https://img.icons8.com/color/48/000000/react-native.png" },
+  { "name": "NodeJS", "icon": "https://img.icons8.com/color/48/000000/nodejs.png" },
+  { "name": "ExpressJS", "icon": "https://img.icons8.com/color/48/000000/express.png" },
+  { "name": "MongoDB", "icon": "https://img.icons8.com/color/48/000000/mongodb.png" },
+  { "name": "C/C++", "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" },
+  { "name": "Python", "icon": "https://img.icons8.com/color/48/000000/python.png" },
+  { "name": "Java", "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png" },
+  { "name": "SQL", "icon": "https://img.icons8.com/color/48/000000/sql.png" },
+  { "name": "MySQL", "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png" },
+  { "name": "OOPs", "icon": "https://img.icons8.com/color/48/000000/class.png" },
+  { "name": "AWS", "icon": "https://img.icons8.com/color/48/000000/amazon-web-services.png" },
+  { "name": "S3", "icon": "https://img.icons8.com/color/48/000000/cloud-storage.png" },
+  { "name": "RESTful APIs", "icon": "https://img.icons8.com/color/48/000000/api.png" },
+  { "name": "Android Development", "icon": "https://img.icons8.com/color/48/000000/android-os.png" },
+  { "name": "DBMS", "icon": "https://img.icons8.com/color/48/000000/database.png" },
+  { "name": "Git", "icon": "https://img.icons8.com/color/48/000000/git.png" },
+  { "name": "Power BI", "icon": "https://img.icons8.com/color/48/000000/power-bi.png" },
+  { "name": "OpenCV", "icon": "https://img.icons8.com/color/48/000000/opencv.png" },
+  { "name": "System Design", "icon": "https://img.icons8.com/color/48/000000/workflow.png" },
+  { "name": "Operating System", "icon": "https://img.icons8.com/color/48/000000/linux.png" },
+  { "name": "CI/CD Tools", "icon": "https://img.icons8.com/color/48/000000/infinity.png" },
+  { "name": "Docker", "icon": "https://img.icons8.com/color/48/000000/docker.png" },
+  { "name": "AI/ML", "icon": "https://img.icons8.com/color/48/000000/artificial-intelligence.png" },
+  { "name": "WordPress", "icon": "https://img.icons8.com/color/48/000000/wordpress.png" },
+  { "name": "ECU Development", "icon": "https://img.icons8.com/color/48/000000/car.png" },
+  { "name": "ECU Virtualization", "icon": "https://img.icons8.com/color/48/000000/virtual-reality.png" },
+
+  { "name": "dSPACE SystemDesk", "icon": "https://img.icons8.com/color/48/000000/system-task.png" },
+  { "name": "dSPACE ControlDesk", "icon": "https://img.icons8.com/color/48/000000/control-panel.png" },
+  { "name": "dSPACE VEOS Player", "icon": "https://img.icons8.com/color/48/000000/play.png" },
+{ "name": "Automation (Tooling)", "faIcon": "fas fa-cogs" },
+{ "name": "Embedded Systems", "faIcon": "fas fa-microchip" },
+
+
+  { "name": "AUTOSAR", "icon": "https://img.icons8.com/color/48/000000/settings.png" }
+]

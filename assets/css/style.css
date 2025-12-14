@@ -464,12 +464,11 @@ header .navbar ul li a:hover {
   min-height: 85vh;
   background: linear-gradient(to bottom, #57059e, #4a00e0);
 }
-.skills h2 {
-  color: #fff;
-}
-.skills .heading span {
-  color: rgb(255, 230, 0);
-}
+
+.skills h2 { color: #fff; }
+
+.skills .heading span { color: rgb(255, 230, 0); }
+
 .skills .container {
   background: rgba(0, 0, 22, 0.4);
   color: #fff;
@@ -479,57 +478,86 @@ header .navbar ul li a:hover {
   margin: auto;
   margin-top: 2rem;
 }
+
 .skills .container .row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  flex-wrap: wrap;
   gap: 1.8rem;
+  /* remove flex-wrap; grid doesn't use it */
 }
+
 .skills .container .bar {
-  margin-bottom: 15px;
-  padding: 10px;
+  padding: 14px 10px;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 22, 0.9);
   transition: 0.2s;
+
+  /* key alignment fixes */
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
 .skills .container .bar:hover {
   box-shadow: 0 8px 10px rgba(0, 2, 68, 0.8) !important;
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
+
 .skills .container .bar .info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: center;
+  gap: 10px;
+
+  /* remove the vertical push that causes unevenness */
+  margin-top: 0;
 }
+
+/* Make icon area same size for both img + font awesome */
+.skills .container .bar .info img,
 .skills .container .bar .info i {
-  font-size: 4rem;
+  width: 48px;
+  height: 48px;
+  display: block;
 }
+
+.skills .container .bar .info img {
+  object-fit: contain;
+}
+
+.skills .container .bar .info i {
+  font-size: 3.6rem;   /* fits inside 48x48 box */
+  line-height: 48px;   /* centers FA icon vertically */
+}
+
 .skills .container .bar .info span {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 500;
   font-family: "Poppins";
-  margin-left: 0.5rem;
+  margin-left: 0; /* remove left shift to keep text centered */
 }
-/* skills media queries starts*/
+
+/* skills media queries starts */
 @media screen and (max-width: 600px) {
   .skills .container {
     padding: 0;
     margin: 0;
-  }
-  .skills .container .row {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 1rem;
-    padding: 2rem 0.2rem 2rem 0.2rem;
-    gap: 1rem;
-  }
-  .skills .container {
     margin-top: 5px;
     width: 100%;
   }
+
+  .skills .container .row {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1rem;
+    padding: 2rem 0.2rem;
+    gap: 1rem;
+  }
 }
+
 /* skills media queries ends*/
 /* skills section ends */
 
