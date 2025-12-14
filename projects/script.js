@@ -64,13 +64,15 @@ function showProjects(projects) {
         max: 20,
     });
 
-    // Scroll Reveal Animation
     const srtop = ScrollReveal({
-        origin: 'bottom',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
+  origin: 'top',
+  distance: '60px',
+  duration: 900,
+  reset: false,                 // important: don't hide again after reveal
+  viewFactor: 0.20,              // reveal when ~20% of element is visible
+  viewOffset: { top: 80, bottom: 80 } // avoids revealing too early/late
+});
+
     srtop.reveal('.work .box', { interval: 200 });
 
     // Isotope Filter
