@@ -1,5 +1,45 @@
 [
   {
+    "name": "Tokins — AI Token Analytics Platform",
+    "desc": "An AI-powered token analytics and management platform featuring intelligent insights, real-time tracking, and predictive analytics for digital tokens.",
+    "image": "Tokins",
+    "category": "ai",
+    "links": {
+      "view": "https://tokins.in/",
+      "code": "https://github.com/rider315/tokins"
+    }
+  },
+  {
+    "name": "CareMate — AI Healthcare App",
+    "desc": "A Django healthcare app with AI diet recommendations, disease prediction using ML models, dashboards, and WhatsApp integration.",
+    "image": "caremate",
+    "category": "ai",
+    "links": {
+      "view": "https://care-hospital-7kzk.onrender.com/",
+      "code": "https://github.com/rider315/care_hospital"
+    }
+  },
+  {
+    "name": "Smart Object Detection System",
+    "desc": "Real-time object detection system using OpenCV and ESP32 CAM with ML-based image recognition for optimized performance. Published in IEEE.",
+    "image": "objectdetect",
+    "category": "ai",
+    "links": {
+      "view": "https://ieeexplore.ieee.org/document/10574574",
+      "code": "https://ieeexplore.ieee.org/document/10574574"
+    }
+  },
+  {
+    "name": "PsychiAssist — AI Mental Health Tool",
+    "desc": "An AI-powered platform using a sophisticated ML algorithm to predict the level of neurological disorders in individuals.",
+    "image": "pyschiassist",
+    "category": "ai",
+    "links": {
+      "view": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html",
+      "code": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html"
+    }
+  },
+  {
     "name": "MERN Stack Application with Admin Panel",
     "desc": "A full-stack blogging platform with user authentication, admin panel, and content management via Sanity IO.",
     "image": "ridescom",
@@ -17,16 +57,6 @@
     "links": {
       "view": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN",
       "code": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN"
-    }
-  },
-  {
-    "name": "Smart Object Detection System",
-    "desc": "Real-time object detection system using OpenCV and ESP32 CAM for optimized performance and video analysis.",
-    "image": "objectdetect",
-    "category": "basicweb",
-    "links": {
-      "view": "https://ieeexplore.ieee.org/document/10574574",
-      "code": "https://ieeexplore.ieee.org/document/10574574"
     }
   },
   {
@@ -60,7 +90,7 @@
     }
   },
   {
-    "name": "Data Processing API and Frontend: Full Stack Project",
+    "name": "Data Processing API and Frontend",
     "desc": "Full-stack app with a REST API for data processing and a user-friendly frontend for data visualization.",
     "image": "bajajhealth",
     "category": "mern",
@@ -70,8 +100,18 @@
     }
   },
   {
+    "name": "Top ATS Resume",
+    "desc": "Full-stack app for creating LaTeX-based resumes with secure authentication and efficient rendering.",
+    "image": "topatsresume",
+    "category": "mern",
+    "links": {
+      "view": "https://top-ats-resume.vercel.app/",
+      "code": "https://github.com/rider315/top_ats_resume"
+    }
+  },
+  {
     "name": "A Simple Version of a TODO APP",
-    "desc": "A MERN stack based TODO app, which performs simple CURD operations on TODO's.",
+    "desc": "A MERN stack based TODO app, which performs simple CRUD operations on TODO's.",
     "image": "todoapp",
     "category": "mern",
     "links": {
@@ -80,13 +120,23 @@
     }
   },
   {
-    "name": "PsychiAssist",
-    "desc": "An online platform using a sophisticated algorithm to predict the level of neurological disorders in individuals.",
-    "image": "pyschiassist",
-    "category": "basicweb",
+    "name": "FinanceTracker",
+    "desc": "A C# and .NET 8 web app for tracking income and expenses, with local JSON data storage.",
+    "image": "financetrack",
+    "category": "web",
     "links": {
-      "view": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html",
-      "code": "https://lastone-riderinfinity.s3.ap-south-1.amazonaws.com/psychiassist/index.html"
+      "view": "https://github.com/rider315/finance_tracker",
+      "code": "https://github.com/rider315/finance_tracker"
+    }
+  },
+  {
+    "name": "Shape Calculator",
+    "desc": "A C# and ASP.NET Core web app for calculating shapes, featuring local JSON storage and a Bootstrap 5 frontend.",
+    "image": "shapecalci",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/rider315/shapecalci",
+      "code": "https://github.com/rider315/shapecalci"
     }
   },
   {
@@ -99,46 +149,6 @@
       "code": "https://github.com/rider315/Flipkart_Clone"
     }
   },
-      {
-    "name": "Top ATS Resume",
-    "desc": "Full-stack app for creating LaTeX-based resumes with secure authentication and efficient rendering.",
-    "image": "topatsresume",
-    "category": "mern",
-    "links": {
-      "view": "https://top-ats-resume.vercel.app/",
-      "code": "https://github.com/rider315/top_ats_resume"
-    }
-  },
-  {
-  "name": "FinanceTracker",
-  "desc": "A C# and .NET 8 web app for tracking income and expenses, with local JSON data storage.",
-  "image": "financetrack",
-  "category": "web",
-  "links": {
-    "view": "https://github.com/rider315/finance_tracker",
-    "code": "https://github.com/rider315/finance_tracker"
-  }
-},
-{
-  "name": "Shape Calculator",
-  "desc": "A C# and ASP.NET Core web app for tracking income and expenses, featuring local JSON storage and a Bootstrap 5 frontend.",
-  "image": "shapecalci",
-  "category": "web",
-  "links": {
-    "view": "https://github.com/rider315/shapecalci",
-    "code": "https://github.com/rider315/shapecalci"
-  }
-},
-{
-  "name": "CareMate",
-  "desc": "A Django healthcare app with AI diet recommendations, disease prediction, dashboards, and WhatsApp integration.",
-  "image": "caremate",
-  "category": "web",
-  "links": {
-    "view": "https://care-hospital-7kzk.onrender.com/",
-    "code": "https://github.com/rider315/care_hospital"
-  }
-},
   {
     "name": "First Portfolio Website",
     "desc": "My initial portfolio website, built using simple HTML, CSS, and JavaScript, hosted on AWS S3.",
