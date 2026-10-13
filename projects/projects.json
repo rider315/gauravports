@@ -1,209 +1,460 @@
 [
   {
-    "name": "Tokins: Live Queue & AI Admin Platform",
-    "desc": "A live queue and AI admin SaaS for clinics, pharmacies, retail and service centres, used by 100+ businesses. Real-time queues over Socket.io, Redis caching, Razorpay payments, Firebase auth, and LLM-driven marketing over email, Telegram, Instagram and voice.",
-    "year": 2025,
-    "stack": ["React", "Node.js", "MongoDB", "Redis", "Socket.io", "AWS"],
-    "image": "tokins",
-    "category": "ai",
-    "featured": true,
-    "links": { "view": "https://tokins.in/", "code": null },
-    "note": "Codebase is private"
-  },
-  {
     "name": "Chills: Resume Tailoring & Recruiter Email",
     "desc": "Tailor a LaTeX resume to any job with every change approved in a diff, then email the recruiter with it attached. Employers and dates are frozen, edits are spliced by byte range, and an allow-list sanitizer blocks \\input and \\write18.",
     "year": 2026,
-    "stack": ["Next.js", "TypeScript", "Postgres", "Claude & Gemini APIs"],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Postgres",
+      "Claude & Gemini APIs"
+    ],
     "image": null,
     "category": "ai",
     "featured": true,
-    "links": { "view": "https://chills.pro/", "code": "https://github.com/rider315/Res_Mod" }
+    "links": {
+      "view": "https://chills.pro/",
+      "code": "https://github.com/rider315/Res_Mod"
+    }
   },
   {
     "name": "Chills v1: AI Outreach Engine",
     "desc": "The first version of Chills: parses resumes into JSON (with an OCR fallback for scanned PDFs), researches each company, classifies its sector and drafts outreach emails through a multi-provider LLM router with retries, backoff and output validation.",
     "year": 2026,
-    "stack": ["Express", "MongoDB", "OpenRouter / Gemini / Llama", "Tesseract.js"],
+    "stack": [
+      "Express",
+      "MongoDB",
+      "OpenRouter / Gemini / Llama",
+      "Tesseract.js"
+    ],
     "image": null,
     "category": "ai",
-    "links": { "view": null, "code": "https://github.com/rider315/Chills" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/Chills"
+    }
   },
   {
     "name": "RAG Recommendation Agent",
-    "desc": "Scraper, MiniLM embeddings and FAISS vector search with Gemini Flash on top and prompt guardrails, served over FastAPI.",
+    "desc": "Conversational agent that recommends assessments from a 32-page catalogue it scrapes itself: pre-LLM guardrails, MiniLM embeddings and FAISS retrieval, Gemini Flash, then post-LLM validation, behind a FastAPI chat endpoint.",
     "year": 2026,
-    "stack": ["Python", "FAISS", "MiniLM", "Gemini", "FastAPI"],
+    "stack": [
+      "Python",
+      "FAISS",
+      "MiniLM",
+      "Gemini",
+      "FastAPI"
+    ],
     "image": null,
     "category": "ai",
-    "links": { "view": null, "code": "https://github.com/rider315/SHL_Assessement" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/SHL_Assessement"
+    }
   },
   {
-    "name": "MT5 Trading Engine",
-    "desc": "Automated Forex trading on MetaTrader 5 with pluggable strategies, per-trade risk and daily drawdown limits, dry-run mode, a trade journal and a live web dashboard.",
+    "name": "RIFX: Rider Infinity Trading Engine",
+    "desc": "Python research and execution engine on MetaTrader 5: 14 strategy modules (including regime switching and a plain-text rule DSL), an evaluation matrix, a five-gate risk manager, AI news sentiment, backtesting and grid-search optimisation on AWS Spot fleets, walk-forward checks, multi-bot threads and a Flask dashboard.",
     "year": 2026,
-    "stack": ["Python", "MetaTrader 5"],
+    "stack": [
+      "Python",
+      "MetaTrader 5",
+      "Pandas",
+      "AWS (EC2 Spot, S3, SQS)",
+      "Flask"
+    ],
     "image": null,
     "category": "tools",
-    "links": { "view": null, "code": "https://github.com/rider315/rider_infinity" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/rider_infinity"
+    },
+    "featured": true
   },
   {
     "name": "SyncWave Audio",
     "desc": "Windows desktop app that plays one system-audio stream on several Bluetooth or wired devices at once, with adaptive buffering and per-device latency controls.",
     "year": 2026,
-    "stack": ["C#", ".NET 8 WPF", "WASAPI", "NAudio"],
+    "stack": [
+      "C#",
+      ".NET 8 WPF",
+      "WASAPI",
+      "NAudio"
+    ],
     "image": null,
     "category": "tools",
-    "links": { "view": null, "code": "https://github.com/rider315/Wave_Sync" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/Wave_Sync"
+    }
   },
   {
     "name": "Rider Infinity Studio Website",
     "desc": "Website for my independent software studio: a Three.js particle scene with GSAP scroll animation, deployed on Vercel.",
     "year": 2026,
-    "stack": ["JavaScript", "Three.js", "GSAP", "Vite"],
+    "stack": [
+      "JavaScript",
+      "Three.js",
+      "GSAP",
+      "Vite"
+    ],
     "image": null,
     "category": "web",
-    "links": { "view": "https://www.riderinfinity.com/", "code": null }
+    "links": {
+      "view": "https://www.riderinfinity.com/",
+      "code": null
+    }
+  },
+  {
+    "name": "Duplicate Image Scanner",
+    "desc": "Offline Windows app that finds images that are really the same picture, even renamed, resized, re-saved in another format or flipped. Side-by-side comparison, spreadsheet export, and it never deletes anything.",
+    "year": 2026,
+    "stack": [
+      "Python",
+      "Pillow",
+      "Windows"
+    ],
+    "image": null,
+    "category": "tools",
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/dups"
+    }
+  },
+  {
+    "name": "Tokins: Live Queue & AI Admin Platform",
+    "desc": "A live queue and AI admin SaaS for clinics, pharmacies, retail and service centres, used by 100+ businesses. Real-time queues over Socket.io, Redis caching, Razorpay payments, Firebase auth, and LLM-driven marketing over email, Telegram, Instagram and voice.",
+    "year": 2025,
+    "stack": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "Socket.io",
+      "AWS"
+    ],
+    "image": "tokins",
+    "category": "ai",
+    "featured": true,
+    "links": {
+      "view": "https://tokins.in/",
+      "code": null
+    },
+    "note": "Codebase is private"
   },
   {
     "name": "CareMate: AI Healthcare App",
     "desc": "A Django healthcare app with AI diet recommendations, disease prediction using ML models, dashboards, and WhatsApp integration.",
     "year": 2025,
-    "stack": ["Django", "Python", "ML"],
+    "stack": [
+      "Django",
+      "Python",
+      "ML"
+    ],
     "image": "caremate",
     "category": "ai",
-    "links": { "view": "https://care-hospital-7kzk.onrender.com/", "code": "https://github.com/rider315/care_hospital" }
-  },
-  {
-    "name": "Smart Surveillance Object Detection System",
-    "desc": "Real-time object detection on an ESP32-CAM with OpenCV deep-learning models, analysing live video at up to 30 FPS. Published at IEEE AIIoT 2024.",
-    "year": 2024,
-    "stack": ["Python", "OpenCV", "ESP32-CAM"],
-    "image": "objectdetect",
-    "category": "ai",
-    "featured": true,
-    "links": { "view": "https://ieeexplore.ieee.org/document/10574574", "code": null },
-    "viewLabel": "Paper"
-  },
-  {
-    "name": "PsychiAssist: AI Mental Health Tool",
-    "desc": "An AI-powered platform using an ML model to predict the level of neurological disorders in individuals.",
-    "year": null,
-    "stack": ["ML", "Web"],
-    "image": "pyschiassist",
-    "category": "ai",
-    "links": { "view": null, "code": null },
-    "note": "Demo offline"
-  },
-  {
-    "name": "Lastone: Academic Android App",
-    "desc": "An Android app that gives VIT students previous-year exam papers by course code, with 10K+ downloads on Google Play and Firebase authentication.",
-    "year": 2023,
-    "stack": ["Java", "Android", "Firebase", "AWS S3"],
-    "image": null,
-    "category": "android",
-    "featured": true,
-    "links": { "view": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN", "code": null },
-    "viewLabel": "Google Play"
-  },
-  {
-    "name": "Dynamic Exam Paper Distribution System",
-    "desc": "Admin web app for Lastone that uploads exam papers to AWS S3 and syncs them to the Android app through Firebase.",
-    "year": 2024,
-    "stack": ["React", "AWS S3", "Firebase"],
-    "image": "paperupload",
-    "category": "mern",
-    "links": { "view": "https://lastone-admin-315.vercel.app/", "code": null }
-  },
-  {
-    "name": "MERN Blog with Admin Panel",
-    "desc": "A full-stack blogging platform with user authentication, an admin panel, and content management via Sanity.",
-    "year": 2024,
-    "stack": ["MongoDB", "Express", "React", "Node.js", "Sanity"],
-    "image": "ridescom",
-    "category": "mern",
-    "links": { "view": "https://ridescom.vercel.app/", "code": "https://github.com/rider315/newgit" }
-  },
-  {
-    "name": "Optimized Train Seat Allocation System",
-    "desc": "MERN stack system for train seat management with real-time availability and allocation logic.",
-    "year": 2024,
-    "stack": ["MongoDB", "Express", "React", "Node.js"],
-    "image": "trainseat",
-    "category": "mern",
-    "links": { "view": "https://frontend-a7ch.onrender.com/", "code": "https://github.com/rider315/frontend" }
-  },
-  {
-    "name": "Kanban Board",
-    "desc": "React Kanban board for task management, with customizable grouping and sorting.",
-    "year": 2024,
-    "stack": ["React"],
-    "image": "kanban",
-    "category": "mern",
-    "links": { "view": null, "code": "https://github.com/rider315/kanbanss" }
-  },
-  {
-    "name": "Data Processing API and Frontend",
-    "desc": "Full-stack app with a REST API for data processing and a frontend for visualising the results.",
-    "year": 2024,
-    "stack": ["Node.js", "REST", "React"],
-    "image": "bajajhealth",
-    "category": "mern",
-    "links": { "view": "https://bajaj-frontend-voc5.vercel.app/", "code": "https://github.com/rider315/gauravtodo" }
+    "links": {
+      "view": "https://care-hospital-7kzk.onrender.com/",
+      "code": "https://github.com/rider315/care_hospital"
+    }
   },
   {
     "name": "Top ATS Resume",
     "desc": "Full-stack app for creating LaTeX-based resumes with secure authentication and efficient rendering. A precursor to Chills.",
     "year": 2025,
-    "stack": ["React", "Redux", "latex.js"],
+    "stack": [
+      "React",
+      "Redux",
+      "latex.js"
+    ],
     "image": "topatsresume",
     "category": "mern",
-    "links": { "view": "https://top-ats-resume.vercel.app/", "code": null }
-  },
-  {
-    "name": "MERN TODO App",
-    "desc": "A MERN stack TODO app with simple CRUD operations.",
-    "year": 2024,
-    "stack": ["MongoDB", "Express", "React", "Node.js"],
-    "image": "todoapp",
-    "category": "mern",
-    "links": { "view": "https://gaurav-todo.onrender.com/", "code": "https://github.com/rider315/gaurav_todo" }
+    "links": {
+      "view": "https://top-ats-resume.vercel.app/",
+      "code": null
+    }
   },
   {
     "name": "FinanceTracker",
     "desc": "A C# and .NET 8 web app for tracking income and expenses, with local JSON data storage.",
     "year": 2025,
-    "stack": ["C#", ".NET 8"],
+    "stack": [
+      "C#",
+      ".NET 8"
+    ],
     "image": "financetrack",
     "category": "web",
-    "links": { "view": null, "code": "https://github.com/rider315/finance_tracker" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/finance_tracker"
+    }
   },
   {
     "name": "Shape Calculator",
     "desc": "A C# and ASP.NET Core web app for calculating shapes, with local JSON storage and a Bootstrap 5 frontend.",
     "year": 2025,
-    "stack": ["C#", "ASP.NET Core", "Bootstrap"],
+    "stack": [
+      "C#",
+      "ASP.NET Core",
+      "Bootstrap"
+    ],
     "image": "shapecalci",
     "category": "web",
-    "links": { "view": null, "code": "https://github.com/rider315/shapecalci" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/shapecalci"
+    }
+  },
+  {
+    "name": "Text Emotion Classifier",
+    "desc": "Detects the emotion in a piece of text and replies with advice: a Keras classifier in a Python backend plus a Node service calling Hugging Face inference models.",
+    "year": 2025,
+    "stack": [
+      "Python",
+      "Keras",
+      "Node.js",
+      "Hugging Face"
+    ],
+    "image": null,
+    "category": "ai",
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/emotional_intelligence"
+    }
+  },
+  {
+    "name": "5G Resource Allocation Model",
+    "desc": "Predicts spectrum and power allocation from bandwidth, latency, power, SNR and interference with a small Keras network trained on generated network data.",
+    "year": 2025,
+    "stack": [
+      "Python",
+      "TensorFlow",
+      "scikit-learn"
+    ],
+    "image": null,
+    "category": "ai",
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/5G-Resource-Allocation-System"
+    }
+  },
+  {
+    "name": "WaitWise (Tokins v1)",
+    "desc": "The second iteration of the queue idea that became Tokins: QR-code queueing with React, Socket.io and Firebase.",
+    "year": 2025,
+    "stack": [
+      "React",
+      "Socket.io",
+      "Firebase",
+      "Express"
+    ],
+    "image": null,
+    "category": "mern",
+    "links": {
+      "view": "https://wait-wise-blush.vercel.app/",
+      "code": "https://github.com/rider315/Waitwiseback"
+    },
+    "note": "Backend code"
+  },
+  {
+    "name": "Smart Surveillance Object Detection System",
+    "desc": "Real-time object detection on an ESP32-CAM with OpenCV deep-learning models, analysing live video at up to 30 FPS. Published at IEEE AIIoT 2024.",
+    "year": 2024,
+    "stack": [
+      "Python",
+      "OpenCV",
+      "ESP32-CAM"
+    ],
+    "image": "objectdetect",
+    "category": "ai",
+    "featured": true,
+    "links": {
+      "view": "https://ieeexplore.ieee.org/document/10574574",
+      "code": null
+    },
+    "viewLabel": "Paper"
+  },
+  {
+    "name": "Dynamic Exam Paper Distribution System",
+    "desc": "Admin web app for Lastone that uploads exam papers to AWS S3 and syncs them to the Android app through Firebase.",
+    "year": 2024,
+    "stack": [
+      "React",
+      "AWS S3",
+      "Firebase"
+    ],
+    "image": "paperupload",
+    "category": "mern",
+    "links": {
+      "view": "https://lastone-admin-315.vercel.app/",
+      "code": null
+    }
+  },
+  {
+    "name": "MERN Blog with Admin Panel",
+    "desc": "A full-stack blogging platform with user authentication, an admin panel, and content management via Sanity.",
+    "year": 2024,
+    "stack": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "Sanity"
+    ],
+    "image": "ridescom",
+    "category": "mern",
+    "links": {
+      "view": "https://ridescom.vercel.app/",
+      "code": "https://github.com/rider315/newgit"
+    }
+  },
+  {
+    "name": "Optimized Train Seat Allocation System",
+    "desc": "MERN stack system for train seat management with real-time availability and allocation logic.",
+    "year": 2024,
+    "stack": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js"
+    ],
+    "image": "trainseat",
+    "category": "mern",
+    "links": {
+      "view": "https://frontend-a7ch.onrender.com/",
+      "code": "https://github.com/rider315/frontend"
+    }
+  },
+  {
+    "name": "Kanban Board",
+    "desc": "React Kanban board for task management, with customizable grouping and sorting.",
+    "year": 2024,
+    "stack": [
+      "React"
+    ],
+    "image": "kanban",
+    "category": "mern",
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/kanbanss"
+    }
+  },
+  {
+    "name": "Data Processing API and Frontend",
+    "desc": "Full-stack app with a REST API for data processing and a frontend for visualising the results.",
+    "year": 2024,
+    "stack": [
+      "Node.js",
+      "REST",
+      "React"
+    ],
+    "image": "bajajhealth",
+    "category": "mern",
+    "links": {
+      "view": "https://bajaj-frontend-voc5.vercel.app/",
+      "code": "https://github.com/rider315/gauravtodo"
+    }
+  },
+  {
+    "name": "MERN TODO App",
+    "desc": "A MERN stack TODO app with simple CRUD operations.",
+    "year": 2024,
+    "stack": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js"
+    ],
+    "image": "todoapp",
+    "category": "mern",
+    "links": {
+      "view": "https://gaurav-todo.onrender.com/",
+      "code": "https://github.com/rider315/gaurav_todo"
+    }
+  },
+  {
+    "name": "Indian-Language Speech Synthesis",
+    "desc": "Trained a VITS text-to-speech model for a non-Hindi Indian language on AI4Bharat data using Colab GPUs, with a reproducible setup guide.",
+    "year": 2024,
+    "stack": [
+      "PyTorch",
+      "VITS",
+      "Colab"
+    ],
+    "image": null,
+    "category": "ai",
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/SpeechSynthesisProject"
+    }
+  },
+  {
+    "name": "Lastone: Academic Android App",
+    "desc": "An Android app that gives VIT students previous-year exam papers by course code, with 10K+ downloads on Google Play and Firebase authentication.",
+    "year": 2023,
+    "stack": [
+      "Java",
+      "Android",
+      "Firebase",
+      "AWS S3"
+    ],
+    "image": null,
+    "category": "android",
+    "featured": true,
+    "links": {
+      "view": "https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&hl=en_IN",
+      "code": null
+    },
+    "viewLabel": "Google Play"
   },
   {
     "name": "Flipkart Clone",
     "desc": "A fully responsive MVP version of Flipkart with basic e-commerce functionality.",
     "year": 2023,
-    "stack": ["HTML", "CSS", "JavaScript"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
     "image": "flipkartimage",
     "category": "basicweb",
-    "links": { "view": null, "code": "https://github.com/rider315/Flipkart_Clone" }
+    "links": {
+      "view": null,
+      "code": "https://github.com/rider315/Flipkart_Clone"
+    }
   },
   {
     "name": "First Portfolio Website",
     "desc": "My first portfolio website, built with plain HTML, CSS and JavaScript and hosted on AWS S3.",
     "year": 2023,
-    "stack": ["HTML", "CSS", "JavaScript", "AWS S3"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "AWS S3"
+    ],
     "image": "firstportfolio",
     "category": "basicweb",
-    "links": { "view": null, "code": null },
+    "links": {
+      "view": null,
+      "code": null
+    },
     "note": "Retired"
+  },
+  {
+    "name": "PsychiAssist: AI Mental Health Tool",
+    "desc": "An AI-powered platform using an ML model to predict the level of neurological disorders in individuals.",
+    "year": null,
+    "stack": [
+      "ML",
+      "Web"
+    ],
+    "image": "pyschiassist",
+    "category": "ai",
+    "links": {
+      "view": null,
+      "code": null
+    },
+    "note": "Demo offline"
   }
 ]

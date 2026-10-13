@@ -91,7 +91,7 @@
   var BASE = {
     a: 1, b: 2, beta: 0, phase: 0, tilt: 0.34, yt: 0, k: 5, amp: 0.05,
     cx: 0.5, cy: 0.5, sx: 0.4, sy: 0.24, cr: 255, cg: 181, cb: 71,
-    intensity: 1, draw: 1, noise: 0, front: 0, spin: 1, ribbon: 1, lock: 0, vt: 0, label: "CH1"
+    intensity: 1, draw: 1, noise: 0, front: 0, spin: 1, ribbon: 1, lock: 0, vt: 0, mk: 0, label: "CH1"
   };
 
   function S(partial, rgb) {
@@ -153,6 +153,13 @@
         return S({ a: 1, b: 3, tilt: 0.3, cx: mob ? 0.5 : 0.3, cy: 0.5, sx: mob ? 0.42 : 0.3, sy: mob ? 0.32 : 0.38, intensity: mob ? 0.24 : 0.45, label: "MATH" }, CHM);
       case "lab":
         return S({ a: 2, b: 1, tilt: 0.3, cx: 0.5, cy: 0.5, sx: 0.32, sy: 0.46, intensity: 0.2, ribbon: 0.4, label: "CH3" }, CH3);
+      case "venture":
+        // The signal turns into a price tape for the trading venture.
+        return S({ yt: 1, mk: 1, k: 3, amp: mob ? 0.05 : 0.09, cy: mob ? 0.93 : 0.8, intensity: mob ? 0.3 : 0.6, ribbon: 0, label: "MKT" }, CHM);
+      case "rifx":
+        return S({ yt: 1, mk: 1, k: 3, amp: 0.05, cy: 0.1, intensity: 0.3, ribbon: 0, label: "RIFX" }, CHM);
+      case "side":
+        return S({ a: 5, b: 4, beta: 0.4, tilt: 0.5, cx: 0.5, cy: 0.5, sx: mob ? 0.45 : 0.42, sy: mob ? 0.42 : 0.36, intensity: mob ? 0.2 : 0.3, label: "FFT" }, CH4);
       case "more":
         return S({ a: 3, b: 2, tilt: 0.4, cx: mob ? 0.5 : 0.84, cy: 0.5, sx: 0.22, sy: 0.22, intensity: mob ? 0.18 : 0.3, label: "CH4" }, CH4);
       case "creds":
@@ -188,6 +195,22 @@
   }
 
   var blended = S({}, CH1);
+
+  // The console can take over the figure for a while (scope 3 4). Scrolling hands it back.
+  var manual = null;
+  window.Scope && (window.Scope.setManual = function (m) {
+    manual = m ? { a: m.a, b: m.b, until: performance.now() + 12000, y: window.scrollY } : null;
+    if (window.Scope.wake) window.Scope.wake();
+  });
+
+  // Pointer probe: in the hero, the figure leans toward the cursor like a scope being tuned.
+  var probe = { x: 0, y: 0, tx: 0, ty: 0 };
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    window.addEventListener("pointermove", function (e) {
+      probe.tx = e.clientX / window.innerWidth - 0.5;
+      probe.ty = e.clientY / window.innerHeight - 0.5;
+    }, { passive: true });
+  }
   var KEYS = Object.keys(BASE).filter(function (k) { return k !== "label"; });
 
   function smooth(k) { return k * k * (3 - 2 * k); }
@@ -210,6 +233,18 @@
         out[key] += (to[key] - out[key]) * k;
       }
       if (k > 0.5) out.label = to.label;
+    }
+    // Hero only: lean toward the pointer (fades out as the hero scrolls away).
+    probe.x += (probe.tx - probe.x) * 0.08;
+    probe.y += (probe.ty - probe.y) * 0.08;
+    var heroWeight = Math.max(0, 1 - s / H);
+    if (!step && heroWeight > 0) {
+      out.phase += probe.x * 0.9 * heroWeight;
+      out.tilt += probe.y * 0.5 * heroWeight;
+    }
+    if (manual) {
+      if (performance.now() > manual.until || Math.abs(window.scrollY - manual.y) > 60) manual = null;
+      else { out.a = manual.a; out.b = manual.b; out.yt = 0; out.mk = 0; out.intensity = Math.max(out.intensity, 0.7); out.label = "USER"; }
     }
     // Scrolling turns the figure; the closing scene "locks" it back to a clean infinity.
     out.phase += step ? 0 : (s / H) * 0.35 * (1 - out.lock);
@@ -542,6 +577,35 @@
         });
       });
 
+      /* --------------------------------------------- venture + side channels */
+      whenNear($(".venture"), function () {
+        revealIn($(".venture"));
+        gsap.from(".pos", {
+          opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.08,
+          scrollTrigger: { trigger: ".board", start: "top 82%", toggleActions: "play none none reverse" }
+        });
+        gsap.from(".flow-row li, .flow-side", {
+          opacity: 0, y: 24, duration: 0.8, ease: "power3.out", stagger: 0.06,
+          scrollTrigger: { trigger: ".flow", start: "top 82%", toggleActions: "play none none reverse" }
+        });
+        gsap.from(".desk", {
+          opacity: 0, y: 60, duration: 1.1, ease: "power3.out",
+          scrollTrigger: { trigger: ".desk", start: "top 88%", toggleActions: "play none none reverse" }
+        });
+        gsap.from(".rifx-facts li", {
+          opacity: 0, y: 24, duration: 0.8, ease: "power3.out", stagger: 0.06,
+          scrollTrigger: { trigger: ".rifx-facts", start: "top 86%", toggleActions: "play none none reverse" }
+        });
+      });
+
+      whenNear($(".side"), function () {
+        revealIn($(".side"));
+        gsap.from(".spectrum li", {
+          opacity: 0, y: 30, duration: 0.8, ease: "power3.out", stagger: 0.05,
+          scrollTrigger: { trigger: ".spectrum", start: "top 85%", toggleActions: "play none none reverse" }
+        });
+      });
+
       /* ----------------------------------------------------------- contact */
       whenNear($(".contact"), function () {
         revealIn($(".contact"));
@@ -862,8 +926,19 @@
         status.textContent = "Thanks, your message is on its way. I'll reply by email.";
         status.classList.add("is-ok");
       }).catch(function (err) {
-        if (window.console) console.warn("Contact form failed", err);
-        status.textContent = "Couldn't send right now. Please email me directly.";
+        if (window.console) console.warn("Contact form failed", err && (err.status + " " + err.text));
+        // Never a dead end: hand the visitor's message to their own email app instead.
+        var body = form.elements.message.value.trim() + "\n\n" + form.elements.name.value.trim() +
+          (form.elements.phone.value.trim() ? "\n" + form.elements.phone.value.trim() : "");
+        var href = "mailto:gaurav.chaudhary.865022@gmail.com?subject=" +
+          encodeURIComponent("Hello from your portfolio") + "&body=" + encodeURIComponent(body);
+        status.textContent = "The form couldn't send just now. Your message is still here: ";
+        var a = document.createElement("a");
+        a.href = href;
+        a.className = "inline-link";
+        a.textContent = "open it in your email app";
+        status.appendChild(a);
+        status.appendChild(document.createTextNode("."));
         status.classList.add("is-err");
       }).then(function () {
         btn.removeAttribute("aria-disabled");

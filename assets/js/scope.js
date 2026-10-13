@@ -18,14 +18,14 @@
   var TAU = Math.PI * 2;
   var KEYS = [
     "a", "b", "beta", "phase", "tilt", "yt", "k", "amp", "cx", "cy", "sx", "sy",
-    "cr", "cg", "cb", "intensity", "draw", "noise", "front", "spin", "ribbon", "vt"
+    "cr", "cg", "cb", "intensity", "draw", "noise", "front", "spin", "ribbon", "vt", "mk"
   ];
   var DEFAULTS = {
     a: 1, b: 2, beta: 0, phase: 0, tilt: 0.34,
     yt: 0, k: 5, amp: 0.07,
     cx: 0.5, cy: 0.5, sx: 0.42, sy: 0.24,
     cr: 255, cg: 181, cb: 71,
-    intensity: 1, draw: 1, noise: 0, front: 0, spin: 1, ribbon: 1, vt: 0
+    intensity: 1, draw: 1, noise: 0, front: 0, spin: 1, ribbon: 1, vt: 0, mk: 0
   };
   var LEVELS = 7;
   var frameGap = 0; // ms between renders; phones and small CPUs render at 30 fps
@@ -41,6 +41,7 @@
   var frozen = false, reduced = reduceMQ.matches, started = false;
   var needsRender = true, frontDirty = false;
   var velocity = 0;
+  var glitch = 0, lastLabel = null; // a short chromatic "channel switch" when the section changes
   var driver = null, hudFn = null, hudLast = 0;
   var N = 900;
   var px, py, pd; // point buffers
@@ -111,6 +112,13 @@
     // YT mode sweeps horizontally; with vt = 1 it sweeps down the screen instead.
     var sweep = -0.03 + u * 1.06;
     var wave = Math.sin(u * TAU * s.k + ytPhase);
+    if (s.mk > 0.001) {
+      // "Market" mode: incommensurate harmonics read like a price tape rather than a clean sine.
+      var q = ytPhase * 0.25;
+      var market = 0.55 * Math.sin(u * TAU * 1.3 + q) + 0.26 * Math.sin(u * TAU * 4.7 + q * 2.1 + 1.7) +
+        0.12 * Math.sin(u * TAU * 13.1 + q * 3.7 + 0.4) + 0.07 * Math.sin(u * TAU * 31.7 + q * 6.3 + 2.2);
+      wave += (market * 1.6 - wave) * s.mk;
+    }
     var X2 = sweep * cw + (s.cx * cw + wave * s.amp * cw - sweep * cw) * s.vt;
     var Y2 = s.cy * ch - wave * s.amp * ch + (sweep * ch - (s.cy * ch - wave * s.amp * ch)) * s.vt;
     var m = s.yt;
@@ -229,6 +237,20 @@
     strokeLevels(bctx, backPaths);
     if (useFront) strokeLevels(fctx, frontPaths);
 
+    // Channel switch: red and cyan ghosts of the brightest segments, offset sideways, fading fast.
+    if (glitch > 0.03) {
+      var off = glitch * 7 * dpr;
+      [[off, "255,70,90"], [-off, "70,220,255"]].forEach(function (g) {
+        bctx.save();
+        bctx.translate(g[0], 0);
+        bctx.globalCompositeOperation = "lighter";
+        bctx.lineWidth = 1.4 * dpr;
+        bctx.strokeStyle = "rgba(" + g[1] + "," + (0.55 * glitch * s.intensity).toFixed(3) + ")";
+        for (var l = LEVELS - 3; l < LEVELS; l++) if (backPaths[l]) bctx.stroke(backPaths[l]);
+        bctx.restore();
+      });
+    }
+
     // 4. Packets: small bright dots riding the signal
     if (s.draw > 0.98) {
       for (var q = 0; q < packets.length; q++) {
@@ -279,8 +301,13 @@
         delta += Math.abs(d);
       }
     }
+    if (target.label !== lastLabel) {
+      if (lastLabel !== null && !reduced) glitch = 1;
+      lastLabel = target.label;
+    }
     cur.label = target.label;
     cur.frontY = target.frontY;
+    glitch *= Math.exp(-dt * 6);
     velocity *= Math.exp(-dt * 4);
 
     var running = !frozen && !reduced && !document.hidden;
@@ -297,7 +324,7 @@
       hudFn(cur, clock);
     }
 
-    if (running || delta > 0.0005) schedule();
+    if (running || delta > 0.0005 || glitch > 0.03) schedule();
   }
 
   function schedule() {
@@ -379,6 +406,11 @@
 
     isReduced: function () {
       return reduced;
+    },
+
+    glitch: function () {
+      if (!reduced) glitch = 1;
+      schedule();
     },
 
     wake: function () {
