@@ -1,110 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="running">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/404.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-    <title>Got Lost! Page Not Found</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>No signal (404) · Gaurav Chaudhary</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07080a">
+  <link rel="preload" href="/assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/404.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <script defer src="/assets/js/scope.js"></script>
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/page-scope.js"></script>
 </head>
-<body oncontextmenu="return false">
+<body data-scope="nosignal">
 
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo"><i class="fas fa-laptop-code"></i> Gaurav</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lemniscate" viewBox="0 0 40 20"><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z"/></symbol>
+</svg>
 
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a href="/#work">Work</a></li>
-            <li><a href="/#experience">Experience</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            </ul>
-        </nav>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <canvas id="scope" class="bg-scope"></canvas>
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+</div>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate" class="brand-mark-base"/><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z" data-ambient/></svg>
+    <span class="brand-name">Gaurav Chaudhary<small>AI &amp; Full Stack Engineer</small></span><span class="visually-hidden"> (home)</span>
+  </a>
 </header>
-<!-- navbar ends -->
 
-<!-- 404 section start -->
-<section class="page_404">
-        <div class="container">
-          <div class="wrapper">
-            <h1 class="text-center ">404</h1>
-          </div>
-          
-          <div class="msg">
-          <h3>Looks like you're lost</h3>
-          <p>The page you are looking for is not available!</p>
-           
-          <div class="backbtn">
-            <a href="/" class="btn">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Home</span>
-          </a>
-          </div>
-
-          </div>
-        </div>
-</section>
-<!-- 404 section end -->
-
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Gaurav's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="/#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="/#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-          <a href="/#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 704-302-4736</p>
-          <p> <i class="fas fa-envelope"></i>Gauravsable21@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Pune, India-412206</p>
-          <div class="share">
-
-              <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" class="fab fa-linkedin" target="_blank"></a>
-              <a href="https://github.com/rider315" class="fab fa-github" target="_blank"></a>
-              <a href="mailto:Gauravsable21@gmail.com" class="fas fa-envelope" target="_blank"></a>
-              <a href="https://twitter.com/Gaurav_sable" class="fab fa-twitter" target="_blank"></a>
-              <a href="https://t.me/gaurav_chaudhary111" class="fab fa-telegram-plane" target="_blank"></a>
-          </div>
-      </div>
+<main id="main" tabindex="-1" class="nosig">
+  <div class="wrap">
+    <p class="kicker"><span class="kicker-idx">404</span>No signal<span class="kicker-meta">Check the probe</span></p>
+    <h1 class="display">This page <span class="serif">isn't on the wire.</span></h1>
+    <p class="lede">The link may be old or mistyped. Everything that exists is one click away.</p>
+    <div class="nosig-cta">
+      <a class="btn btn-primary" href="/">Back to the homepage</a>
+      <a class="btn" href="/projects">Project archive</a>
+      <a class="btn" href="/#contact">Contact</a>
+    </div>
   </div>
+</main>
 
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/Gaurav-sable"> Gaurav sable</a></h1>
-
-</section>
-<!-- footer section ends -->
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="/assets/js/404.js"></script>
-
-
+<div class="hud">
+  <div class="hud-readout" aria-hidden="true">
+    <span class="hud-ch" data-hud-ch>NO SIG</span>
+    <span class="hud-val" data-hud-mode>YT</span>
+  </div>
+  <button class="hud-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+</div>
 </body>
 </html>

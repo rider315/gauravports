@@ -1,88 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="running">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- Basic SEO (JS will update these after fetching the post) -->
-  <title>Blog Post</title>
-  <meta name="description" id="metaDescription" content="" />
-  <link rel="canonical" id="canonicalLink" href="" />
+  <!-- Basic SEO (blog-post.js updates these after fetching the post) -->
+  <title>Blog Post · Gaurav Chaudhary</title>
+  <meta name="description" id="metaDescription" content="">
+  <link rel="canonical" id="canonicalLink" href="">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" id="ogTitle" content="" />
-  <meta property="og:description" id="ogDescription" content="" />
-  <meta property="og:image" id="ogImage" content="" />
-  <meta property="og:url" id="ogUrl" content="" />
+  <meta property="og:type" content="article">
+  <meta property="og:title" id="ogTitle" content="">
+  <meta property="og:description" id="ogDescription" content="">
+  <meta property="og:image" id="ogImage" content="">
+  <meta property="og:url" id="ogUrl" content="">
 
   <!-- Structured data -->
   <script type="application/ld+json" id="jsonLd"></script>
 
-  <!-- Your main styles -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="theme-color" content="#07080a">
+  <link rel="preload" href="./assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="./assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
 
   <!-- Contentful SDK (must be before config + blog scripts) -->
   <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
 </head>
+<body data-scope="blog">
 
-<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lemniscate" viewBox="0 0 40 20"><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 16 16"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 
-  <!-- navbar starts -->
-  <header>
-    <a href="index.html#home" class="logo"><i class="fab fa-node-js"></i> Gaurav</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <div id="menu" class="fas fa-bars"></div>
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-lens"><div class="bg-lens-inner"></div></div>
+  <canvas id="scope" class="bg-scope"></canvas>
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+</div>
+<div class="progress" aria-hidden="true"><span></span></div>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#education">Education</a></li>
-        <li><a href="projects/index.html">Work</a></li>
-        <li><a href="experience/index.html">Experience</a></li>
-        <li><a class="active" href="blog.html">Blog</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- navbar ends -->
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate" class="brand-mark-base"/><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z" data-ambient/></svg>
+    <span class="brand-name">Gaurav Chaudhary<small>AI &amp; Full Stack Engineer</small></span><span class="visually-hidden"> (home)</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/experience">Experience</a></li>
+      <li><a href="/#stack">Stack</a></li>
+      <li><a href="/projects">Work</a></li>
+      <li><a href="/experience#education">Education</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="header-link" href="/blog.html" aria-current="page">Blog</a>
+    <a class="btn btn-sm" href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-lines" aria-hidden="true"></span><span class="menu-btn-label">Menu</span></button>
+  </div>
+</header>
 
-  <main class="blog" style="min-height: 80vh; padding-top: 8rem;">
-    <h2 class="heading">Blog <span>Post</span></h2>
+<div class="menu" id="menu">
+  <ul class="menu-links">
+    <li><a href="/"><span>00</span>Home</a></li>
+    <li><a href="/#about"><span>01</span>About</a></li>
+    <li><a href="/experience"><span>02</span>Experience</a></li>
+    <li><a href="/projects"><span>04</span>Work</a></li>
+    <li><a href="/#contact"><span>06</span>Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a href="/blog.html">All posts</a>
+    <a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</div>
 
-    <div id="blogPostContainer" class="blog-post-full" style="margin-top: 2.5rem;">
-      <p class="blog-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+<div class="hud">
+  <div class="hud-readout" aria-hidden="true">
+    <span class="hud-ch" data-hud-ch>CH1</span>
+    <span class="hud-val" data-hud-time>T 000%</span>
+  </div>
+  <button class="hud-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+</div>
+
+<main id="main" tabindex="-1">
+  <article class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="./blog.html"><svg width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>All posts</a>
+      <div id="blogPostContainer" class="blog-post-full" style="margin-top: 32px;">
+        <p class="blog-loading">Loading post…</p>
+      </div>
     </div>
-  </main>
+  </article>
+</main>
 
-  <!-- Contentful config (LOAD FIRST) -->
-  <script src="./assets/js/contentful-config.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> Gaurav Chaudhary</span>
+      <button class="hud-run footer-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+      <a href="/#contact">Get in touch</a>
+    </div>
+  </div>
+</footer>
 
-  <!-- Blog post script (LOAD AFTER config) -->
-  <script src="./assets/js/blog-post.js"></script>
+<script src="./assets/js/scope.js"></script>
+<script src="./assets/js/site.js"></script>
+<script src="./assets/js/page-scope.js"></script>
 
-  <!-- Navbar toggle for this page (keeps it independent from assets/js/script.js) -->
-  <script>
-    const menu = document.getElementById('menu');
-    const navbar = document.querySelector('.navbar');
-
-    if (menu && navbar) {
-      menu.addEventListener('click', () => {
-        menu.classList.toggle('fa-times');
-        navbar.classList.toggle('nav-toggle');
-      });
-
-      window.addEventListener('scroll', () => {
-        menu.classList.remove('fa-times');
-        navbar.classList.remove('nav-toggle');
-      });
-    }
-  </script>
-
+<!-- Contentful config (load first), then the post renderer -->
+<script src="./assets/js/contentful-config.js"></script>
+<script src="./assets/js/blog-post.js"></script>
 </body>
 </html>

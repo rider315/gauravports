@@ -1,129 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="running">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/experience/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <title>Experience | Portfolio Gaurav Chaudhary</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Experience · Gaurav Chaudhary</title>
+  <meta name="description" content="Gaurav Chaudhary's experience, education, publication and certifications: Innodata, KPIT Technologies, Livestockify, InsideFPV and his own studio, Rider Infinity.">
+  <meta name="theme-color" content="#07080a">
+  <link rel="canonical" href="https://gauravports.onrender.com/experience">
+  <link rel="preload" href="/assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/experience/style.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <script defer src="/assets/js/scope.js"></script>
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/page-scope.js"></script>
 </head>
-<body>
+<body class="page-cv" data-scope="cv">
 
-<header>
-    <a href="/" class="logo"><i class="fas fa-laptop-code"></i> Gaurav</a>
-    <div id="menu" class="fas fa-bars"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a href="/projects">Work</a></li>
-            <li><a class="active" href="/experience">Experience</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/#contact">Contact</a></li>
-        </ul>
-    </nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lemniscate" viewBox="0 0 40 20"><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 16 16"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-lens"><div class="bg-lens-inner"></div></div>
+  <canvas id="scope" class="bg-scope"></canvas>
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+</div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate" class="brand-mark-base"/><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z" data-ambient/></svg>
+    <span class="brand-name">Gaurav Chaudhary<small>AI &amp; Full Stack Engineer</small></span><span class="visually-hidden"> (home)</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/experience" aria-current="page">Experience</a></li>
+      <li><a href="/#stack">Stack</a></li>
+      <li><a href="/projects">Work</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="header-link" href="/blog.html">Blog</a>
+    <a class="btn btn-sm" href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-lines" aria-hidden="true"></span><span class="menu-btn-label">Menu</span></button>
+  </div>
 </header>
 
-<section class="experience" id="experience">
-    <h2 class="heading"><i class="fas fa-briefcase"></i> Experience</h2>
-    <div class="quote">
-        <span>every experience in your life is being orchestrated to teach you something you need to know to move forward.</span>
-    </div>
-    <div class="timeline">
-        <div class="container right">
-            <div class="content">
-                <div class="tag"><h2>KPIT Technologies Ltd</h2></div>
-                <div class="desc">
-                    <h3>Associate Software Engineer</h3>
-                    <p>Apr 2025 - Present</p>
-                    <ul class="experience-desc">
-  <li>Contributing to ECU development and ECU virtualization workflows for the EVCU2 ECU program.</li>
-  <li>Working with dSPACE toolchain for virtual ECU bring-up and validation: SystemDesk, ControlDesk, and VEOS Player.</li>
-  <li>Supporting AUTOSAR-based development activities (integration, configuration support, and virtual validation as applicable).</li>
-  <li>Built automation scripts to streamline dSPACE workflow tasks (repeatable runs, setup steps, and tool-driven processes), improving reliability and turnaround time.</li>
-  <li>Participating in code reviews and agile workflows while maintaining compliance with automotive development practices.</li>
-</ul>
+<div class="menu" id="menu">
+  <ul class="menu-links">
+    <li><a href="/"><span>00</span>Home</a></li>
+    <li><a href="/#about"><span>01</span>About</a></li>
+    <li><a href="/experience" aria-current="page"><span>02</span>Experience</a></li>
+    <li><a href="/projects"><span>04</span>Work</a></li>
+    <li><a href="#education"><span>05</span>Education</a></li>
+    <li><a href="/#contact"><span>06</span>Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+    <a href="/blog.html">Blog</a>
+    <a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</div>
 
-                </div>
-            </div>
-        </div>
-        <div class="container left">
-            <div class="content">
-                <div class="tag"><h2>KuppiSmart Solutions Pvt Ltd</h2></div>
-                <div class="desc">
-                    <h3>Web Development Head</h3>
-                    <p>Sep 2023 - Mar 2024</p>
-                    <ul class="experience-desc">
-                        <li>Designed and developed a Adaptive website for Livestockify...</li>
-                        <li>Integrated real-time data from IoT sensors...</li>
-                        <li>Created interactive visualizations...</li>
-                        <li>Utilized technologies such as ThingSpeak API and JavaScript.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container right">
-            <div class="content">
-                <div class="tag"><h2>InsideFPV</h2></div>
-                <div class="desc">
-                    <h3>Web Developer</h3>
-                    <p>May 2023 - Oct 2023</p>
-                    <ul class="experience-desc">
-                        <li>Optimized website performance by 40%...</li>
-                        <li>Integrated secure payment gateways...</li>
-                        <li>Executed SEO best practices...</li>
-                        <li>Utilized technologies such as AWS, EC2, S3, and WordPress.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="morebtn">
-        <a href="/" class="btn"><i class="fas fa-arrow-left"></i><span>Back to Home</span></a>
-    </div>
-</section>
+<div class="hud">
+  <div class="hud-readout" aria-hidden="true">
+    <span class="hud-ch" data-hud-ch>CH2</span>
+    <span class="hud-val" data-hud-mode>YT</span>
+    <span class="hud-val" data-hud-time>T 000%</span>
+  </div>
+  <button class="hud-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+</div>
 
-<section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3>Gaurav's Portfolio</h3>
-            <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀.</p>
-        </div>
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="/"><i class="fas fa-chevron-circle-right"></i> home</a>
-            <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-            <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-            <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-            <a href="/projects"><i class="fas fa-chevron-circle-right"></i> work</a>
-            <a href="/experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-        </div>
-        <div class="box">
-            <h3>contact info</h3>
-            <p><i class="fas fa-phone"></i>+91 8650119836</p>
-            <p><i class="fas fa-envelope"></i>gaurav.chaudhary.865022@gmail.com</p>
-            <p><i class="fas fa-map-marked-alt"></i>Vellore, India-632014</p>
-            <div class="share">
-                <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" class="fab fa-linkedin" target="_blank"></a>
-                <a href="https://github.com/rider315" class="fab fa-github" target="_blank"></a>
-                <a href="mailto:gaurav.chaudhary.865022@gmail.com" class="fas fa-envelope" target="_blank"></a>
-                <a href="https://twitter.com/Gaurav_sable" class="fab fa-twitter" target="_blank"></a>
-                <a href="https://t.me/gaurav_chaudhary111" class="fab fa-telegram-plane" target="_blank"></a>
-            </div>
-        </div>
+<main id="main" tabindex="-1">
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="/#experience"><svg width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>Back to home</a>
+      <h1 class="display">Experience, <span class="serif">in full.</span></h1>
+      <p class="lede">Two full-time roles, two internships and an independent studio, plus education, a publication and certifications. The short version is on the <a class="inline-link" href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">résumé (PDF)</a>.</p>
     </div>
-    <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/"> Gaurav Chaudhary</a></h1>
-</section>
+  </section>
 
-<a href="#experience" class="fas fa-angle-up" id="scroll-top"></a>
+  <section class="cv" aria-labelledby="cv-roles">
+    <div class="wrap cv-grid">
+      <span class="cv-rail" data-scope-rail aria-hidden="true"></span>
+      <h2 class="kicker" id="cv-roles"><span class="kicker-idx">02</span>Roles<span class="kicker-meta">Newest first</span></h2>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="/experience/script.js"></script>
+      <ol class="roles">
+        <li class="role" style="--c: var(--ch1)">
+          <p class="role-when"><time datetime="2023">2023</time> → <span class="role-now">Now</span></p>
+          <h3 class="role-org">Rider Infinity</h3>
+          <p class="role-title"><span class="serif">Founder &amp; engineer</span> · Independent studio · Bengaluru</p>
+          <ul class="role-points">
+            <li>Build and run my own products: Tokins, a live queue and AI admin SaaS used by 100+ businesses, and Chills, an AI resume tailoring and recruiter outreach tool.</li>
+            <li>Since 2023, contract work on AI training platforms such as Handshake AI, Alignerr, Outlier and Appen: grading and fixing code written by large language models.</li>
+            <li>Client builds that start from a small working demo, then move to an agreed scope.</li>
+          </ul>
+          <p class="role-tech">React · Node.js · Next.js · Python · MongoDB · Postgres · Redis · AWS · LLM APIs · <a class="ext" href="https://www.riderinfinity.com/" target="_blank" rel="noopener noreferrer">riderinfinity.com</a></p>
+        </li>
+
+        <li class="role" style="--c: var(--ch4)">
+          <p class="role-when"><time datetime="2026-06">Jun 2026</time> → <time datetime="2026-09">Sep 2026</time></p>
+          <h3 class="role-org">Innodata</h3>
+          <p class="role-title"><span class="serif">Senior Associate</span> · AI Managed Services · Noida</p>
+          <ul class="role-points">
+            <li>Evaluated LLM responses across diverse task suites, scoring accuracy, reasoning quality, factual consistency and instruction following.</li>
+            <li>Assessed Retrieval-Augmented Generation workflows for retrieval relevance, context grounding and hallucination rate.</li>
+            <li>Owned AI quality assurance end to end: reproduced model failures, defined evaluation rubrics, validated fixes and worked with engineering teams on reliability.</li>
+            <li>Automated evaluation and data validation pipelines in Python, standardising how results are collected and reported.</li>
+          </ul>
+          <p class="role-tech">LLM evaluation · RAG · Prompt engineering · Python · Pandas · AI QA · Data validation</p>
+        </li>
+
+        <li class="role" style="--c: var(--ch3)">
+          <p class="role-when"><time datetime="2025-04">Apr 2025</time> → <time datetime="2026-04">Apr 2026</time></p>
+          <h3 class="role-org">KPIT Technologies</h3>
+          <p class="role-title"><span class="serif">Associate Software Engineer</span> · Pune</p>
+          <ul class="role-points">
+            <li>Developed and validated ECU software and control systems for the EVCU2 program, covering ECU virtualisation (vECU), system integration and timing analysis.</li>
+            <li>Drove virtual ECU workflows with dSPACE SystemDesk, ControlDesk and VEOS Player, so validation could run without hardware-in-the-loop dependencies.</li>
+            <li>Built Python automation for environment setup, run orchestration and log and result collection, making repetitive tool-driven tasks repeatable and faster.</li>
+            <li>Took part in code reviews and agile workflows under automotive development practices.</li>
+          </ul>
+          <p class="role-tech">vECU · AUTOSAR · C · Python · dSPACE · Control systems · Embedded systems</p>
+        </li>
+
+        <li class="role" style="--c: var(--chm)">
+          <p class="role-when"><time datetime="2023-09">Sep 2023</time> → <time datetime="2024-03">Mar 2024</time></p>
+          <h3 class="role-org">KuppiSmart Solutions <span class="role-sub">(Livestockify)</span></h3>
+          <p class="role-title"><span class="serif">Web Development Head</span> · Internship · Vellore</p>
+          <ul class="role-points">
+            <li>Led full-stack integration of real-time IoT sensor data into a live livestock monitoring dashboard.</li>
+            <li>Designed and maintained the database schema for streaming sensor data, built for efficient storage, indexing and low-latency live queries.</li>
+            <li>Built interactive visualisations for temperature, humidity, air quality and ventilation.</li>
+          </ul>
+          <p class="role-tech">Python · ThingSpeak API · SQL · Power BI</p>
+        </li>
+
+        <li class="role" style="--c: var(--ch2)">
+          <p class="role-when"><time datetime="2023-05">May 2023</time> → <time datetime="2023-10">Oct 2023</time></p>
+          <h3 class="role-org">InsideFPV</h3>
+          <p class="role-title"><span class="serif">Web Developer</span> · Internship · Vellore</p>
+          <ul class="role-points">
+            <li>Optimised data handling and rendering on the production storefront, reducing page load times by 40%.</li>
+            <li>Developed server-side logic and REST APIs with Node.js and Express, and tuned MongoDB queries.</li>
+            <li>Integrated secure payment gateways.</li>
+          </ul>
+          <p class="role-tech">Node.js · Express · MongoDB · AWS EC2 · AWS S3 · WordPress</p>
+        </li>
+      </ol>
+
+      <h2 class="kicker cv-section" id="education"><span class="kicker-idx">05</span>Education</h2>
+      <div class="edu-block">
+        <p class="role-when"><time datetime="2021-07">Jul 2021</time> → <time datetime="2025-07">Jul 2025</time></p>
+        <h3 class="role-org">Vellore Institute of Technology</h3>
+        <p class="role-title"><span class="serif">B.Tech, Electronics and Communication Engineering</span> · CGPA 8.36 / 10 · Vellore</p>
+        <p class="role-tech">Coursework: Data Structures &amp; Algorithms · DBMS · Operating Systems · Object-Oriented Programming</p>
+      </div>
+
+      <h2 class="kicker cv-section" id="publication"><span class="kicker-idx">P</span>Publication</h2>
+      <div class="edu-block">
+        <p class="role-when">IEEE · AIIoT 2024</p>
+        <h3 class="role-org pub-name">Smart Surveillance Object Detection System</h3>
+        <p class="role-title">2024 3rd International Conference on Artificial Intelligence for Internet of Things. Co-authored with Shreya Pathak, Vikas Choudhary, Love Chauhan and Abhishek N Tripathi. Presented in May 2024 (Certificate of Presentation, IEEE Madras Section).</p>
+        <p class="role-tech"><a class="ext" href="https://ieeexplore.ieee.org/document/10574574" target="_blank" rel="noopener noreferrer">Read on IEEE Xplore</a></p>
+      </div>
+
+      <h2 class="kicker cv-section" id="certifications"><span class="kicker-idx">C</span>Licenses &amp; certifications</h2>
+      <ul class="certs">
+        <li><time datetime="2025-03">Mar 2025</time><span>Embedded Systems Bare-Metal Programming Ground Up (STM32)</span><span>Udemy</span></li>
+        <li><time datetime="2025-03">Mar 2025</time><span>Mastering Data Structures &amp; Algorithms using C and C++</span><span>Udemy</span></li>
+        <li><time datetime="2024-05">May 2024</time><span>Certificate of Presentation, AIIoT 2024</span><span>IEEE Madras Section</span></li>
+        <li><time datetime="2024-05">May 2024</time><span>Forests and their Management</span><span>NPTEL</span></li>
+        <li><time datetime="2024-01">Jan 2024</time><span>AWS Certified Cloud Practitioner</span><span>Amazon Web Services</span></li>
+        <li><time datetime="2023-12">Dec 2023</time><span>C++ Programming Internship</span><span>Navodita Infotech</span></li>
+        <li><time datetime="2023-12">Dec 2023</time><span>Electromagnetic Interference &amp; Compatibility</span><span>VIT Vellore</span></li>
+        <li><time datetime="2023-11">Nov 2023</time><span>VLSI Design Internship: RISC-V RV32I RTL design in Verilog</span><span>Maven Silicon</span></li>
+        <li><time datetime="2023-10">Oct 2023</time><span>Entrepreneurship</span><span>NPTEL</span></li>
+        <li><time datetime="2023-10">Oct 2023</time><span>Entrepreneurship Course (TEC)</span><span>Indian School of Business</span></li>
+        <li><time datetime="2023-07">Jul 2023</time><span>Career Edge: Young Professional</span><span>TCS iON</span></li>
+        <li><time datetime="2023-06">Jun 2023</time><span>Project Execution: Running the Project</span><span>Google (Coursera)</span></li>
+        <li><time datetime="2023-06">Jun 2023</time><span>Developing Applications with SQL, Databases, and Django</span><span>IBM (Coursera) · <a class="ext" href="https://www.coursera.org/verify/6ZP5FS2QGAZS" target="_blank" rel="noopener noreferrer">verify</a></span></li>
+        <li><time datetime="2023-05">May 2023</time><span>Web Development Internship</span><span>InternPe</span></li>
+        <li><time datetime="2023-04">Apr 2023</time><span>Data Science Foundation</span><span>Great Learning</span></li>
+        <li><time datetime="2023-04">Apr 2023</time><span>The Fundamentals of Digital Marketing</span><span>Google Digital Garage</span></li>
+        <li><time datetime="2020-09">Sep 2020</time><span>Course on Computer Concepts (CCC)</span><span>NIELIT</span></li>
+      </ul>
+
+      <div class="cv-cta">
+        <a class="btn btn-primary" href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Download résumé <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+        <a class="btn" href="/#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-sig"><svg viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate"/></svg>Gaurav Chaudhary</p>
+        <p class="footer-note">AI &amp; full stack engineer in Bengaluru, India. Open to full-time roles and freelance builds.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/experience">Experience</a></li>
+          <li><a href="/projects">Project archive</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://t.me/gaurav_chaudhary111" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+          <li><a href="mailto:gaurav.chaudhary.865022@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <button class="rewind" type="button" data-rewind="main"><span class="rewind-dial" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Back to top</button>
+    </div>
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> Gaurav Chaudhary</span>
+      <button class="hud-run footer-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+      <span>Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,123 +1,106 @@
-$(document).ready(function () {
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
-
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
-
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
-        }
-    });
-});
-
-document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === "visible") {
-        document.title = "Projects | Portfolio Gaurav Chaudhary";
-        $("#favicon").attr("href", "/assets/images/favicon.png");
-    } else {
-        document.title = "Come Back To Portfolio";
-        $("#favicon").attr("href", "/assets/images/favhand.png");
-    }
-});
-
-// Fetch projects
-function getProjects() {
-    return fetch("./projects/projects.json") // Adjusted for Render
-        .then(response => response.json())
-        .then(data => data)
-        .catch(error => console.error('Error fetching projects:', error));
-}
-
-function showProjects(projects) {
-    let projectsContainer = document.querySelector(".work .box-container");
-    let projectsHTML = "";
-    projects.forEach(project => {
-        projectsHTML += `
-        <div class="grid-item ${project.category}">
-            <div class="box tilt" style="width: 380px; margin: 1rem">
-                <img draggable="false" src="../assets/images/projects/${project.image}.png" alt="project" />
-                <div class="content">
-                    <div class="tag">
-                        <h3>${project.name}</h3>
-                    </div>
-                    <div class="desc">
-                        <p>${project.desc}</p>
-                        <div class="btns">
-                            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-    });
-    projectsContainer.innerHTML = projectsHTML;
-
-    // Vanilla Tilt
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 20,
-    });
-
-    const srtop = ScrollReveal({
-  origin: 'top',
-  distance: '60px',
-  duration: 900,
-  reset: false,                 // important: don't hide again after reveal
-  viewFactor: 0.20,              // reveal when ~20% of element is visible
-  viewOffset: { top: 80, bottom: 80 } // avoids revealing too early/late
-});
-
-    srtop.reveal('.work .box', { interval: 200 });
-
-    // Isotope Filter
-    var $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
-        masonry: {
-            columnWidth: 200
-        }
-    });
-
-    // Ensure footer background after layout completes
-    $grid.on('layoutComplete', function() {
-        $('.footer').css('background', 'rgb(0, 1, 43)');
-    });
-
-    // Filter items on button click
-    $('.button-group').on('click', 'button', function () {
-        $('.button-group').find('.is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-}
-
-getProjects().then(data => {
-    if (data) showProjects(data);
-});
-
-// Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+/* Project archive: renders /projects/projects.json and filters it by category. */
 (function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
+  "use strict";
 
-// Disable Developer Mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
-};
+  var list = document.querySelector("[data-cards]");
+  var count = document.querySelector("[data-count]");
+  var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+  if (!list) return;
+
+  var LABELS = { ai: "AI & ML", mern: "Full stack", android: "Android", web: ".NET & web", tools: "Tools", basicweb: "Early web" };
+  var COLORS = { ai: "var(--ch3)", mern: "var(--ch2)", android: "var(--chm)", web: "var(--ch4)", tools: "var(--ch1)", basicweb: "var(--ink-2)" };
+  var LISSAJOUS = "M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z";
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined && text !== null) e.textContent = text;
+    return e;
+  }
+
+  function link(href, label) {
+    var a = el("a", "ext", label);
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    return a;
+  }
+
+  function card(p, i) {
+    var li = el("li", "card" + (p.featured ? " card--featured" : ""));
+    li.dataset.category = p.category;
+    li.style.setProperty("--n", String(i));
+    li.style.setProperty("--c", COLORS[p.category] || "var(--ch4)");
+
+    var media = el("div", "card-media");
+    if (p.image) {
+      var img = el("img");
+      img.src = "/assets/images/opt/" + p.image + "-900.webp";
+      img.alt = "Screenshot of " + p.name;
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.width = 900;
+      img.height = 506;
+      media.appendChild(img);
+    } else {
+      var ph = el("div", "card-ph");
+      ph.setAttribute("aria-hidden", "true");
+      ph.innerHTML = '<svg viewBox="0 0 40 20"><path d="' + LISSAJOUS + '"/></svg>';
+      ph.appendChild(el("span", null, "No screenshot"));
+      media.appendChild(ph);
+    }
+    li.appendChild(media);
+
+    var body = el("div", "card-body");
+    var meta = el("p", "card-meta");
+    if (p.year) meta.appendChild(el("span", null, String(p.year)));
+    meta.appendChild(el("span", null, LABELS[p.category] || p.category));
+    body.appendChild(meta);
+    body.appendChild(el("h2", "card-title", p.name));
+    body.appendChild(el("p", "card-desc", p.desc));
+    if (p.stack && p.stack.length) body.appendChild(el("p", "card-stack", p.stack.join(" · ")));
+
+    var links = el("p", "card-links");
+    if (p.links && p.links.view) links.appendChild(link(p.links.view, p.viewLabel || "Live"));
+    if (p.links && p.links.code) links.appendChild(link(p.links.code, "Code"));
+    if (p.note) links.appendChild(el("span", "card-note", p.note));
+    if (links.childNodes.length) body.appendChild(links);
+
+    li.appendChild(body);
+    return li;
+  }
+
+  function applyFilter(f) {
+    var shown = 0;
+    Array.prototype.forEach.call(list.children, function (li) {
+      var on = f === "*" || li.dataset.category === f;
+      li.hidden = !on;
+      if (on) shown++;
+    });
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.filter === f)); });
+    if (count) count.textContent = "Showing " + shown + (shown === 1 ? " project" : " projects");
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () { applyFilter(b.dataset.filter); });
+  });
+
+  fetch("/projects/projects.json")
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function (projects) {
+      list.innerHTML = "";
+      projects.forEach(function (p, i) { list.appendChild(card(p, i)); });
+      applyFilter("*");
+    })
+    .catch(function (err) {
+      if (window.console) console.error("Could not load projects", err);
+      list.innerHTML = "";
+      var li = el("li", "cards-loading", "Couldn't load the project list. Everything is also on GitHub: ");
+      var a = link("https://github.com/rider315", "github.com/rider315");
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+})();

@@ -1,101 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="running">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/projects/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <title>Projects | Portfolio Gaurav Chaudhary</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Project Archive · Gaurav Chaudhary</title>
+  <meta name="description" content="Every project Gaurav Chaudhary has shipped or built: AI products, full-stack apps, Android, .NET and tools, with live links and source where public.">
+  <meta name="theme-color" content="#07080a">
+  <link rel="canonical" href="https://gauravports.onrender.com/projects">
+  <link rel="preload" href="/assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/projects/style.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="/assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <script defer src="/assets/js/scope.js"></script>
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/page-scope.js"></script>
+  <script defer src="/projects/script.js"></script>
 </head>
-<body>
+<body data-scope="archive">
 
-<!-- Navbar Starts -->
-<header>
-    <a href="/" class="logo"><i class="fas fa-laptop-code"></i> Gaurav</a>
-    <div id="menu" class="fas fa-bars"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a class="active" href="/projects">Work</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/#contact">Contact</a></li>
-        </ul>
-    </nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lemniscate" viewBox="0 0 40 20"><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-back" viewBox="0 0 16 16"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-lens"><div class="bg-lens-inner"></div></div>
+  <canvas id="scope" class="bg-scope"></canvas>
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+</div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate" class="brand-mark-base"/><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z" data-ambient/></svg>
+    <span class="brand-name">Gaurav Chaudhary<small>AI &amp; Full Stack Engineer</small></span><span class="visually-hidden"> (home)</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/experience">Experience</a></li>
+      <li><a href="/#stack">Stack</a></li>
+      <li><a href="/projects" aria-current="page">Work</a></li>
+      <li><a href="/experience#education">Education</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="header-link" href="/blog.html">Blog</a>
+    <a class="btn btn-sm" href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-lines" aria-hidden="true"></span><span class="menu-btn-label">Menu</span></button>
+  </div>
 </header>
-<!-- Navbar Ends -->
 
-<!-- Work Project Section Starts -->
-<section class="work" id="work">
-    <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-    
-    <div id="filters" class="button-group">
-        <button class="btn is-checked" data-filter="*">All Projects</button>
-        <button class="btn" data-filter=".ai">AI / ML</button>
-        <button class="btn" data-filter=".mern">MERN Stack</button>
-        <button class="btn" data-filter=".android">Android Apps</button>
-        <button class="btn" data-filter=".web">Web Development</button>
+<div class="menu" id="menu">
+  <ul class="menu-links">
+    <li><a href="/"><span>00</span>Home</a></li>
+    <li><a href="/#about"><span>01</span>About</a></li>
+    <li><a href="/experience"><span>02</span>Experience</a></li>
+    <li><a href="/projects" aria-current="page"><span>04</span>Work</a></li>
+    <li><a href="/#contact"><span>06</span>Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a href="/assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+    <a href="/blog.html">Blog</a>
+    <a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hud-readout" aria-hidden="true">
+    <span class="hud-ch" data-hud-ch>CH4</span>
+    <span class="hud-val" data-hud-mode>XY</span>
+    <span class="hud-val" data-hud-ratio>3.00:2.00</span>
+    <span class="hud-val" data-hud-time>T 000%</span>
+  </div>
+  <button class="hud-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+</div>
+
+<main id="main" tabindex="-1">
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="/#work"><svg width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>Back to selected work</a>
+      <h1 class="display">Project archive. <span class="serif">Shipped, built, learned from.</span></h1>
+      <p class="lede">Products, client and assignment builds, desktop tools and early experiments, newest first. Live links appear only where the deployment still works, and source links only where the repository is public.</p>
     </div>
+  </section>
 
-    <div class="box-container">
-        <!-- Projects will be populated dynamically -->
+  <section class="archive" aria-label="Projects">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter projects by category">
+        <button class="chip" type="button" data-filter="*" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="ai" aria-pressed="false">AI &amp; ML</button>
+        <button class="chip" type="button" data-filter="mern" aria-pressed="false">Full stack</button>
+        <button class="chip" type="button" data-filter="android" aria-pressed="false">Android</button>
+        <button class="chip" type="button" data-filter="web" aria-pressed="false">.NET &amp; web</button>
+        <button class="chip" type="button" data-filter="tools" aria-pressed="false">Tools</button>
+        <button class="chip" type="button" data-filter="basicweb" aria-pressed="false">Early web</button>
+      </div>
+      <p class="archive-count" role="status" aria-live="polite" data-count></p>
+      <ul class="cards" data-cards>
+        <li class="cards-loading">Loading projects…</li>
+      </ul>
+      <noscript><p class="cards-loading">This list needs JavaScript. Everything is also on <a class="link-arrow" href="https://github.com/rider315">GitHub</a>.</p></noscript>
     </div>
+  </section>
+</main>
 
-    <div class="backbtn">
-        <a href="/" class="btn">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back to Home</span>
-        </a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-sig"><svg viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate"/></svg>Gaurav Chaudhary</p>
+        <p class="footer-note">AI &amp; full stack engineer in Bengaluru, India. Open to full-time roles and freelance builds.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/experience">Experience</a></li>
+          <li><a href="/projects">Project archive</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://t.me/gaurav_chaudhary111" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+          <li><a href="mailto:gaurav.chaudhary.865022@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <button class="rewind" type="button" data-rewind="main"><span class="rewind-dial" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Back to top</button>
     </div>
-</section>
-<!-- Work Project Section Ends -->
-
-<!-- Footer Starts (Copied from index.html) -->
-<!-- <section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3>Gaurav's Portfolio</h3>
-            <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀.</p>
-        </div>
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-            <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-            <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-            <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-            <a href="/projects"><i class="fas fa-chevron-circle-right"></i> work</a>
-            <a href="/experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-        </div>
-        <div class="box">
-            <h3>contact info</h3>
-            <p><i class="fas fa-phone"></i>+91 8650119836</p>
-            <p><i class="fas fa-envelope"></i>gaurav.chaudhary.865022@gmail.com</p>
-            <p><i class="fas fa-map-marked-alt"></i>Vellore, India</p>
-            <div class="share">
-                <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-                <a href="https://github.com/rider315" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-                <a href="mailto:gaurav.chaudhary.865022@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-            </div>
-        </div>
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> Gaurav Chaudhary</span>
+      <button class="hud-run footer-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+      <span>Bengaluru, India</span>
     </div>
-    <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/"> Gaurav Chaudhary</a></h1>
-</section> -->
-<!-- Footer Ends -->
-
-<!-- Scroll Top Button -->
-<a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
-
-<!-- JavaScript CDNs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/projects/script.js"></script>
+  </div>
+</footer>
 </body>
 </html>

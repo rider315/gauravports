@@ -59,11 +59,7 @@ function renderBlogPosts(posts) {
   if (!contentfulClient) {
     blogContainer.innerHTML = `
       <p class="blog-loading">
-        Blog is not configured.
-        <br>
-        <span style="font-size:1.3rem;color:#777">
-          (Missing Contentful SDK or contentful-config.js not loaded before blog-all.js)
-        </span>
+        Posts couldn't be loaded right now. Please check back soon.
       </p>
     `;
     return;
@@ -72,11 +68,7 @@ function renderBlogPosts(posts) {
   if (!posts || posts.length === 0) {
     blogContainer.innerHTML = `
       <p class="blog-loading">
-        No blog posts available yet.
-        <br>
-        <span style="font-size:1.3rem;color:#777">
-          Check Console: a 401 means token invalid; empty items may mean wrong content_type or drafts not published.
-        </span>
+        No posts yet. Check back soon.
       </p>
     `;
     return;
@@ -112,11 +104,10 @@ function renderBlogPosts(posts) {
           <p class="blog-excerpt">${excerpt}</p>
           <div class="blog-meta">
             <span class="blog-date">
-              <i class="far fa-calendar-alt"></i>
               ${publishDate ? formatDate(publishDate) : ""}
             </span>
             <span class="read-more">
-              Read More <i class="fas fa-arrow-right"></i>
+              Read more &rarr;
             </span>
           </div>
         </div>
@@ -132,7 +123,7 @@ async function initBlogAll() {
   if (!blogContainer) return;
 
   blogContainer.innerHTML =
-    '<p class="blog-loading"><i class="fas fa-spinner fa-spin"></i> Loading blog posts...</p>';
+    '<p class="blog-loading">Loading posts…</p>';
 
   const posts = await fetchAllBlogPosts();
   renderBlogPosts(posts);

@@ -1,245 +1,767 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="running">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gaurav Chaudhary, portfolio, AI developer, full stack developer, machine learning, AI engineer, forward deployed engineer, web developer, personal portfolio" />
-    <meta name="description" content="Gaurav Chaudhary — AI-Powered Full Stack Developer & Forward Deployed Engineer. Building intelligent web applications with modern AI/ML technologies." />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Gaurav Chaudhary | AI-Powered Full Stack Developer</title>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gaurav Chaudhary · AI &amp; Full Stack Engineer</title>
+  <meta name="description" content="Gaurav Chaudhary is an AI and full stack engineer in Bengaluru, India. He builds LLM applications, RAG pipelines and real-time SaaS such as Tokins and Chills, and is an IEEE AIIoT 2024 author.">
+  <meta name="keywords" content="Gaurav Chaudhary, portfolio, AI engineer, full stack developer, LLM, RAG, forward deployed engineer, React, Node.js, Python, Bengaluru">
+  <meta name="author" content="Gaurav Chaudhary">
+  <meta name="theme-color" content="#07080a">
+  <link rel="canonical" href="https://gauravports.onrender.com/">
 
-<header>
-    <a href="/" class="logo"><i class="fas fa-brain"></i> Gaurav</a>
-    <div id="menu" class="fas fa-bars"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="/projects">Work</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gaurav Chaudhary · AI & Full Stack Engineer">
+  <meta property="og:description" content="LLM applications, RAG pipelines and real-time SaaS, built end to end. Tokins, Chills, IEEE AIIoT 2024.">
+  <meta property="og:url" content="https://gauravports.onrender.com/">
+  <meta property="og:image" content="https://gauravports.onrender.com/assets/images/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gaurav Chaudhary",
+    "jobTitle": "AI & Full Stack Engineer",
+    "url": "https://gauravports.onrender.com/",
+    "email": "mailto:gaurav.chaudhary.865022@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Vellore Institute of Technology" },
+    "sameAs": ["https://www.linkedin.com/in/gaurav-chaudhary-03900120b/", "https://github.com/rider315"]
+  }
+  </script>
+
+  <link rel="preload" href="./assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/home.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="./assets/images/favicon-48.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+
+  <script>
+    /* Runs before first paint: enables JS-only styles, and the CSS intro unless motion is reduced. */
+    (function (d) {
+      d.classList.add("js");
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("intro");
+    })(document.documentElement);
+  </script>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="./assets/js/scope.js"></script>
+  <script defer src="./assets/js/site.js"></script>
+  <script defer src="./assets/js/home.js"></script>
+</head>
+<body class="page-home">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.3A1.3 1.3 0 0 0 2 3.3v5.9a1.3 1.3 0 0 0 1.3 1.3h.2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16"><rect x="1.5" y="3" width="13" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m2.5 4.5 5.5 4.5 5.5-4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 16 16"><path fill="currentColor" d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85zm4.94 12.25V6.17h-2.4v7.23zm-1.2-8.22c.84 0 1.36-.55 1.36-1.24-.02-.71-.52-1.25-1.34-1.25s-1.36.54-1.36 1.25c0 .69.52 1.24 1.33 1.24zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23z"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 16 16"><path fill="currentColor" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.29 5.91c-.78.32-2.34.99-4.67 2.01-.38.15-.58.3-.6.44-.03.24.28.34.69.47l.18.06c.41.13.96.29 1.24.29.26.01.55-.1.87-.32 2.18-1.47 3.3-2.21 3.37-2.23.05-.01.12-.03.17.02.05.04.04.12.04.14-.03.13-1.23 1.24-1.85 1.82l-.36.34-.19.18c-.38.37-.66.64.02 1.09.33.22.59.39.85.57.28.2.57.39.94.63l.27.19c.33.23.63.45 1 .41.21-.02.43-.22.55-.82.26-1.42.79-4.49.91-5.75a1.43 1.43 0 0 0-.01-.32.34.34 0 0 0-.12-.22.53.53 0 0 0-.31-.09c-.3.01-.76.17-2.98 1.09z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11.9" cy="4.1" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 16 16"><path fill="currentColor" d="M1 6h3.5v9H1zm5.25-5h3.5v14h-3.5zM11.5 8.5H15V15h-3.5z"/></symbol>
+  <symbol id="lemniscate" viewBox="0 0 40 20"><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Persistent background: graticule, glow, oscilloscope, grain -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-lens"><div class="bg-lens-inner"></div></div>
+  <canvas id="scope" class="bg-scope"></canvas>
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+</div>
+<canvas id="scope-front" class="fg-scope" aria-hidden="true"></canvas>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="site-header">
+  <a class="brand" href="#top">
+    <svg class="brand-mark" viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate" class="brand-mark-base"/><path d="M20 10C17 5.2 13.6 2 9.5 2 5.4 2 2.5 5.6 2.5 10s2.9 8 7 8c4.1 0 7.5-3.2 10.5-8s6.4-8 10.5-8c4.1 0 7 3.6 7 8s-2.9 8-7 8c-4.1 0-7.5-3.2-10.5-8z" data-ambient/></svg>
+    <span class="brand-name">Gaurav Chaudhary<small>AI &amp; Full Stack Engineer</small></span><span class="visually-hidden"> (back to top)</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#credentials">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a class="header-link" href="blog.html">Blog</a>
+    <a class="btn btn-sm" href="assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-lines" aria-hidden="true"></span><span class="menu-btn-label">Menu</span></button>
+  </div>
 </header>
 
-<section class="home" id="home">
-    <canvas id="neural-canvas"></canvas>
-    <div class="content">
-        <h2>Hi, I'm Gaurav <span>Chaudhary</span></h2>
-        <p>i am into <span class="typing-text"></span></p>
-        <a href="#about" class="btn"><span>About Me</span><i class="fas fa-arrow-circle-down"></i></a>
-        <div class="socials">
-            <ul class="social-icons">
-                <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a class="github" aria-label="GitHub" href="https://github.com/rider315" target="_blank"><i class="fab fa-github"></i></a></li>
-                <li><a class="telegram" aria-label="Telegram" href="https://t.me/gaurav_chaudhary111" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
-                <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/___mr._gaurav__1/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="Gaurav Chaudhary">
-    </div>
-</section>
-
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    <div class="row">
-        <div class="image">
-            <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="Gaurav Chaudhary">
-        </div>
-        <div class="content">
-            <h3>I'm Gaurav</h3>
-            <span class="tag">AI-Powered Full Stack Developer | Forward Deployed Engineer</span>
-            <p>I'm a Full-Stack Developer and AI Enthusiast based in India. B.E. in Electronics and Communications Engineering from VIT Vellore University. Passionate about building intelligent applications that leverage AI/ML to solve real-world problems. Currently working as an Associate Software Engineer at KPIT Technologies, contributing to ECU development and virtualization with automation-driven workflows. Always exploring the intersection of AI, web technologies, and embedded systems.</p>
-            <div class="box-container">
-                <div class="box">
-                    <p><span> email : </span> gaurav.chaudhary.865022@gmail.com</p>
-                    <p><span> place : </span> India</p>
-                </div>
-            </div>
-            <div class="resumebtn">
-                <a href="https://gaurav-chaudhary-resume.s3.us-east-1.amazonaws.com/Gaurav+Chaudhary+Resume.pdf" target="_blank" class="btn"><span>Resume</span><i class="fas fa-chevron-right"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="skills" id="skills">
-    <h2 class="heading"><i class="fas fa-brain"></i> Skills & <span>Abilities</span></h2>
-    <div class="container">
-        <div class="row" id="skillsContainer"></div>
-    </div>
-</section>
-
-<section class="education" id="education">
-    <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
-    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
-    <div class="box-container">
-        <div class="box">
-            <div class="image">
-                <img draggable="false" src="./assets/images/educat/college.png" alt="VIT Vellore">
-            </div>
-            <div class="content">
-                <h3>Bachelor of Engineering in Electronics and Communications Engineering</h3>
-                <p>VIT Vellore</p>
-                <h4>2021-2025 | Completed</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="work" id="work">
-    <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-    <div class="box-container"></div>
-    <div class="viewall">
-        <a href="/projects" class="btn"><span>View All</span><i class="fas fa-arrow-right"></i></a>
-    </div>
-</section>
-
-<section class="experience" id="experience">
-    <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
-    <div class="timeline">
-        <div class="container right">
-            <div class="content">
-                <div class="tag"><h2>KPIT Technologies Ltd</h2></div>
-                <div class="desc">
-                    <h3>Associate Software Engineer</h3>
-                    <p>Apr 2025 - Present</p>
-                    <ul class="experience-desc">
-  <li>Contributing to ECU development and ECU virtualization workflows for the EVCU2 ECU program.</li>
-  <li>Working with dSPACE toolchain for virtual ECU bring-up and validation: SystemDesk, ControlDesk, and VEOS Player.</li>
-  <li>Supporting AUTOSAR-based development activities (integration, configuration support, and virtual validation as applicable).</li>
-  <li>Built automation scripts to streamline dSPACE workflow tasks (repeatable runs, setup steps, and tool-driven processes), improving reliability and turnaround time.</li>
-  <li>Participating in code reviews and agile workflows while maintaining compliance with automotive development practices.</li>
-</ul>
-
-                </div>
-            </div>
-        </div>
-        <div class="container left">
-            <div class="content">
-                <div class="tag"><h2>KuppiSmart Solutions Pvt Ltd</h2></div>
-                <div class="desc">
-                    <h3>Web Development Head</h3>
-                    <p>Sep 2023 - Mar 2024</p>
-                    <ul class="experience-desc">
-                        <li>Designed and developed a Adaptive website for Livestockify...</li>
-                        <li>Integrated real-time data from IoT sensors...</li>
-                        <li>Created interactive visualizations...</li>
-                        <li>Utilized technologies such as ThingSpeak API and JavaScript.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="morebtn">
-        <a href="/experience" class="btn"><span>View All</span><i class="fas fa-arrow-right"></i></a>
-    </div>
-</section>
-
-<section class="blog" id="blog">
-    <h2 class="heading"><i class="fas fa-blog"></i> My <span>Blog</span></h2>
-    <p class="blog-subtitle">Thoughts, tutorials, and insights about AI, web development & tech</p>
-    <div class="blog-container" id="blogContainer">
-        <!-- Blog posts will be dynamically loaded here -->
-    </div>
-    <!-- ✅ CORRECT -->
-<div class="viewall">
-    <a href="blog.html" class="btn"><span>View All Posts</span><i class="fas fa-arrow-right"></i></a>
+<div class="menu" id="menu">
+  <ul class="menu-links">
+    <li><a href="#about"><span>01</span>About</a></li>
+    <li><a href="#experience"><span>02</span>Experience</a></li>
+    <li><a href="#stack"><span>03</span>Stack</a></li>
+    <li><a href="#work"><span>04</span>Work</a></li>
+    <li><a href="#credentials"><span>05</span>Education</a></li>
+    <li><a href="#contact"><span>06</span>Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a href="assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+    <a href="blog.html">Blog</a>
+    <a href="/projects">Project archive</a>
+    <a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
 </div>
 
-</section>
+<!-- Scope on-screen readouts -->
+<div class="hud">
+  <div class="hud-readout" aria-hidden="true">
+    <span class="hud-ch" data-hud-ch>CH1</span>
+    <span class="hud-val" data-hud-mode>XY</span>
+    <span class="hud-val" data-hud-ratio>1.00:2.00</span>
+    <span class="hud-val" data-hud-phase>φ +0.00</span>
+    <span class="hud-val" data-hud-time>T 000%</span>
+  </div>
+  <button class="hud-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+</div>
 
+<main id="main" tabindex="-1">
 
-<section class="contact" id="contact">
-    <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-    <div class="container">
-        <div class="content">
-            <div class="image-box">
-                <img draggable="false" src="./assets/images/contact1.png" alt="Contact">
-            </div>
-            <form id="contact-form">
-                <div class="form-group">
-                    <div class="field">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <i class='fas fa-user'></i>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="email" placeholder="Email" required>
-                        <i class='fas fa-envelope'></i>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="phone" placeholder="Phone">
-                        <i class='fas fa-phone-alt'></i>
-                    </div>
-                    <div class="message">
-                        <textarea placeholder="Message" name="message" required></textarea>
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                </div>
-                <div class="button-area">
-                    <button type="submit">Submit <i class="fa fa-paper-plane"></i></button>
-                </div>
-            </form>
+  <!-- ================================================================ HERO -->
+  <section class="hero" id="top" data-scene="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <p class="hero-eyebrow">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>AI &amp; Full Stack Engineer</span>
+        <span class="hero-eyebrow-sep" aria-hidden="true">/</span>
+        <span>Bengaluru, India</span>
+      </p>
+
+      <h1 class="hero-title" id="hero-title">
+        <span class="visually-hidden">Gaurav Chaudhary</span>
+        <span class="hero-line hero-line--first" aria-hidden="true"><span class="word-mask"><span class="char" style="--i:0">G</span><span class="char" style="--i:1">a</span><span class="char" style="--i:2">u</span><span class="char" style="--i:3">r</span><span class="char" style="--i:4">a</span><span class="char" style="--i:5">v</span></span></span>
+        <span class="hero-line hero-line--last serif" aria-hidden="true"><span class="word-mask"><span class="char" style="--i:0">C</span><span class="char" style="--i:1">h</span><span class="char" style="--i:2">a</span><span class="char" style="--i:3">u</span><span class="char" style="--i:4">d</span><span class="char" style="--i:5">h</span><span class="char" style="--i:6">a</span><span class="char" style="--i:7">r</span><span class="char" style="--i:8">y</span></span></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-lede">I build LLM applications and real-time SaaS end to end: model routing and retrieval, the APIs and databases behind them, and the interface people use. Trained as an electronics engineer, so I measure before I guess.</p>
+        <div class="hero-cta" data-intro>
+          <a class="btn btn-primary" href="#work" data-magnetic="0.2">Explore the work <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn" href="#contact" data-magnetic="0.2">Get in touch</a>
+          <a class="link-arrow" href="assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-down"/></svg>Résumé (PDF)</a>
         </div>
+        <p class="hero-status" data-intro><span class="status-dot" aria-hidden="true"></span>Open to full-time roles and freelance builds</p>
+      </div>
+
+      <ul class="hero-meas" aria-label="Highlights">
+        <li><span class="meas-k">Meas 1</span><span class="meas-v">100+</span><span class="meas-l">businesses on Tokins</span></li>
+        <li><span class="meas-k">Meas 2</span><span class="meas-v">10K+</span><span class="meas-l">Lastone downloads</span></li>
+        <li><span class="meas-k">Meas 3</span><span class="meas-v">IEEE</span><span class="meas-l">AIIoT 2024 author</span></li>
+      </ul>
+
+      <a class="scroll-cue" href="#about">
+        <span class="scroll-cue-track" aria-hidden="true" data-intro><span data-ambient></span></span>
+        <span data-intro>Scroll to sweep</span>
+      </a>
     </div>
-</section>
+  </section>
 
-<section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3>Gaurav's Portfolio</h3>
-            <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀.</p>
+  <!-- =============================================================== ABOUT -->
+  <section class="about section" id="about" data-scene="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <h2 class="kicker" id="about-title"><span class="kicker-idx">01</span>About<span class="kicker-meta">CH1 · XY 1:1</span></h2>
+
+      <div class="about-grid">
+        <p class="statement" data-words>I studied electronics at VIT Vellore, wrote automotive ECU software at KPIT and evaluated large language models at Innodata. Alongside, I build and run my own products. The thread through all of it: <em class="serif">take a noisy signal and make it dependable.</em></p>
+
+        <figure class="portrait" id="about-portrait">
+          <div class="portrait-frame">
+            <img src="assets/images/opt/portrait-540.webp" srcset="assets/images/opt/portrait-540.webp 540w, assets/images/opt/portrait-900.webp 900w" sizes="(max-width: 900px) 70vw, 30vw" width="540" height="587" alt="Portrait of Gaurav Chaudhary" loading="lazy" decoding="async">
+            <span class="portrait-scan" aria-hidden="true" data-ambient></span>
+            <span class="portrait-corner tl" aria-hidden="true"></span><span class="portrait-corner tr" aria-hidden="true"></span><span class="portrait-corner bl" aria-hidden="true"></span><span class="portrait-corner br" aria-hidden="true"></span>
+          </div>
+          <figcaption class="tagline">Gaurav Chaudhary · <b>rider_infinity</b> on GitHub and Play</figcaption>
+        </figure>
+
+        <div class="about-body">
+          <p>Most of my recent work sits where LLMs meet production software: routing requests across model providers, validating what comes back, and wrapping it in products that businesses use every day. <a class="inline-link" href="#tokins">Tokins</a>, my live queue platform, serves 100+ businesses. <a class="inline-link" href="#chills">Chills</a> turns a job description into a tailored resume and a recruiter email.</p>
+          <p>Before that, I spent a year at KPIT on virtual ECUs for an automotive program: dSPACE tooling, timing analysis, and Python automation for setup, test runs and log collection.</p>
         </div>
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-            <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-            <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-            <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-            <a href="/projects"><i class="fas fa-chevron-circle-right"></i> work</a>
-            <a href="/experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-        </div>
-        <div class="box">
-            <h3>contact info</h3>
-            <p><i class="fas fa-envelope"></i>gaurav.chaudhary.865022@gmail.com</p>
-            <p><i class="fas fa-map-marked-alt"></i>India</p>
-            <div class="share">
-                <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-                <a href="https://github.com/rider315" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-                <a href="mailto:gaurav.chaudhary.865022@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-            </div>
-        </div>
+
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Bengaluru, India</dd></div>
+          <div><dt>Education</dt><dd>B.Tech ECE, VIT Vellore, 2025</dd></div>
+          <div><dt>Focus</dt><dd>LLM apps, RAG, real-time SaaS</dd></div>
+          <div><dt>Published</dt><dd>IEEE AIIoT 2024</dd></div>
+          <div><dt>Certified</dt><dd>AWS Cloud Practitioner</dd></div>
+          <div><dt>Languages</dt><dd>English, Hindi</dd></div>
+        </dl>
+      </div>
     </div>
-    <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/"> Gaurav Chaudhary</a></h1>
-</section>
+  </section>
 
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+  <!-- ========================================================== EXPERIENCE -->
+  <section class="xp" id="experience" data-scene="experience" aria-labelledby="xp-title">
+    <div class="xp-pin">
+      <div class="wrap xp-head">
+        <div class="xp-head-main">
+          <h2 class="kicker" id="xp-title"><span class="kicker-idx">02</span>Experience<span class="kicker-meta">YT · 2023 → now</span></h2>
+          <p class="display xp-display" data-split="lines">From storefronts to ECUs <span class="serif">to LLMs.</span></p>
+        </div>
+        <a class="link-arrow" href="/experience">Full timeline &amp; certifications <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./assets/js/neural-bg.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="./assets/js/script.js"></script>
-<!-- Add before other script tags -->
- <script src="./assets/js/contentful-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
-<!-- Add after other script tags -->
-<script src="./assets/js/blog.js"></script>
+      <div class="xp-viewport">
+        <ol class="xp-track">
+          <li class="xp-item" style="--c: var(--ch2)">
+            <span class="xp-marker" aria-hidden="true"></span>
+            <p class="xp-when"><time datetime="2023-05">May 2023</time> → <time datetime="2023-10">Oct 2023</time></p>
+            <h3 class="xp-org">InsideFPV</h3>
+            <p class="xp-role"><span class="serif">Web Developer</span> · Internship · Vellore</p>
+            <ul class="xp-points">
+              <li>Optimised data handling and rendering on the production storefront, cutting page load times by 40%.</li>
+              <li>Wrote server-side logic and REST APIs in Node.js and Express, and tuned MongoDB queries.</li>
+              <li>Integrated secure payment gateways.</li>
+            </ul>
+            <p class="xp-tech">Node.js · Express · MongoDB · AWS EC2/S3 · WordPress</p>
+          </li>
 
+          <li class="xp-item" style="--c: var(--chm)">
+            <span class="xp-marker" aria-hidden="true"></span>
+            <p class="xp-when"><time datetime="2023-09">Sep 2023</time> → <time datetime="2024-03">Mar 2024</time></p>
+            <h3 class="xp-org">KuppiSmart Solutions <span class="xp-org-sub">(Livestockify)</span></h3>
+            <p class="xp-role"><span class="serif">Web Development Head</span> · Internship · Vellore</p>
+            <ul class="xp-points">
+              <li>Led the integration of real-time IoT sensor data into a live livestock monitoring dashboard.</li>
+              <li>Designed the database schema for streaming sensor data, built for low-latency live queries.</li>
+              <li>Built visualisations for temperature, humidity, air quality and ventilation.</li>
+            </ul>
+            <p class="xp-tech">Python · ThingSpeak API · SQL · Power BI</p>
+          </li>
 
+          <li class="xp-item" style="--c: var(--ch3)">
+            <span class="xp-marker" aria-hidden="true"></span>
+            <p class="xp-when"><time datetime="2025-04">Apr 2025</time> → <time datetime="2026-04">Apr 2026</time></p>
+            <h3 class="xp-org">KPIT Technologies</h3>
+            <p class="xp-role"><span class="serif">Associate Software Engineer</span> · Pune</p>
+            <ul class="xp-points">
+              <li>Developed and validated ECU software for the EVCU2 program: ECU virtualisation (vECU), system integration and timing analysis.</li>
+              <li>Ran virtual ECU workflows on dSPACE SystemDesk, ControlDesk and VEOS Player, so validation no longer waited on hardware-in-the-loop rigs.</li>
+              <li>Built Python automation for environment setup, run orchestration and log collection.</li>
+            </ul>
+            <p class="xp-tech">vECU · AUTOSAR · C · Python · dSPACE</p>
+          </li>
+
+          <li class="xp-item" style="--c: var(--ch4)">
+            <span class="xp-marker" aria-hidden="true"></span>
+            <p class="xp-when"><time datetime="2026-06">Jun 2026</time> → <time datetime="2026-09">Sep 2026</time></p>
+            <h3 class="xp-org">Innodata</h3>
+            <p class="xp-role"><span class="serif">Senior Associate</span> · AI Managed Services · Noida</p>
+            <ul class="xp-points">
+              <li>Evaluated LLM responses across task suites for accuracy, reasoning, factual consistency and instruction following.</li>
+              <li>Assessed RAG workflows for retrieval relevance, grounding and hallucination rate.</li>
+              <li>Owned AI QA: reproduced model failures, wrote evaluation rubrics and validated fixes. Automated evaluation and data validation in Python.</li>
+            </ul>
+            <p class="xp-tech">LLM evaluation · RAG · Prompt engineering · Python · Pandas</p>
+          </li>
+
+          <li class="xp-item xp-item--now" style="--c: var(--ch1)">
+            <span class="xp-marker" aria-hidden="true"></span>
+            <p class="xp-when"><time datetime="2023">2023</time> → <span class="xp-now">Now</span></p>
+            <h3 class="xp-org">Rider Infinity</h3>
+            <p class="xp-role"><span class="serif">Founder &amp; engineer</span> · Independent studio</p>
+            <ul class="xp-points">
+              <li>Build and run my own products: Tokins (live SaaS, 100+ businesses) and Chills (AI resume and outreach tool).</li>
+              <li>Since 2023, contract work on AI training platforms such as Handshake AI, Alignerr, Outlier and Appen, grading and fixing code written by LLMs.</li>
+              <li>Client builds, starting from a working demo.</li>
+            </ul>
+            <p class="xp-tech"><a class="link-arrow ext" href="https://www.riderinfinity.com/" target="_blank" rel="noopener noreferrer">riderinfinity.com</a></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== STACK -->
+  <section class="stack section" id="stack" data-scene="stack" aria-labelledby="stack-title">
+    <div class="wrap">
+      <div class="stack-head">
+        <h2 class="kicker" id="stack-title"><span class="kicker-idx">03</span>Stack<span class="kicker-meta">CH3 · XY 3:4</span></h2>
+        <p class="display" data-split="lines">From silicon <span class="serif">to screen.</span></p>
+        <p class="lede">I started at the bottom of the stack, with circuits, microcontrollers and ECUs, and worked my way up to the model and the interface. This is what I reach for at each layer.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-visual" aria-hidden="true">
+          <div class="stack-scene">
+            <div class="stack-3d">
+              <div class="plane" data-plane="0" style="--i:0; --c: var(--ch1)"><span class="plane-label">L1 · Silicon</span><span class="plane-chips"><i>ESP32</i><i>AUTOSAR</i><i>vECU</i><i>Verilog</i></span></div>
+              <div class="plane" data-plane="1" style="--i:1; --c: var(--chm)"><span class="plane-label">L2 · Infrastructure</span><span class="plane-chips"><i>AWS</i><i>Docker</i><i>CI/CD</i><i>Linux</i></span></div>
+              <div class="plane" data-plane="2" style="--i:2; --c: var(--ch2)"><span class="plane-label">L3 · Data</span><span class="plane-chips"><i>MongoDB</i><i>Redis</i><i>FAISS</i><i>MySQL</i></span></div>
+              <div class="plane" data-plane="3" style="--i:3; --c: var(--ch4)"><span class="plane-label">L4 · Services</span><span class="plane-chips"><i>Node</i><i>FastAPI</i><i>Socket.io</i><i>REST</i></span></div>
+              <div class="plane" data-plane="4" style="--i:4; --c: var(--ch3)"><span class="plane-label">L5 · Intelligence</span><span class="plane-chips"><i>RAG</i><i>LLM eval</i><i>LangGraph</i><i>OpenCV</i></span></div>
+              <div class="plane" data-plane="5" style="--i:5; --c: var(--ink)"><span class="plane-label">L6 · Interface</span><span class="plane-chips"><i>React</i><i>Redux</i><i>Android</i><i>TS</i></span></div>
+            </div>
+          </div>
+          <p class="stack-readout tagline">Layer <b data-stack-readout>L1 · Silicon</b></p>
+        </div>
+
+        <ol class="stack-layers">
+          <li class="layer" data-layer="0" style="--c: var(--ch1)">
+            <p class="layer-idx">L1</p>
+            <h3 class="layer-name">Silicon &amp; embedded</h3>
+            <p class="layer-desc">Where I started. Virtual ECUs for an automotive program at KPIT, edge vision on an ESP32-CAM for an IEEE paper, and a RISC-V RV32I core in Verilog during a VLSI internship.</p>
+            <p class="layer-tags">C · Embedded C · ESP32 · STM32 · AUTOSAR · dSPACE SystemDesk, ControlDesk, VEOS · vECU · Verilog</p>
+          </li>
+          <li class="layer" data-layer="1" style="--c: var(--chm)">
+            <p class="layer-idx">L2</p>
+            <h3 class="layer-name">Infrastructure</h3>
+            <p class="layer-desc">Where things have to stay up. Tokins runs on AWS; most side projects ship through Vercel or Render with containers where they help.</p>
+            <p class="layer-tags">AWS (EC2, S3) · Docker · CI/CD · Linux · Git &amp; GitHub · Kubernetes · Vercel · Render</p>
+          </li>
+          <li class="layer" data-layer="2" style="--c: var(--ch2)">
+            <p class="layer-idx">L3</p>
+            <h3 class="layer-name">Data</h3>
+            <p class="layer-desc">Schemas for streaming IoT data, Redis in front of MongoDB for live queues, and vector indexes for retrieval.</p>
+            <p class="layer-tags">MongoDB · Mongoose · Redis · MySQL · Postgres · Firebase · FAISS &amp; vector DBs · Pandas · Power BI</p>
+          </li>
+          <li class="layer" data-layer="3" style="--c: var(--ch4)">
+            <p class="layer-idx">L4</p>
+            <h3 class="layer-name">Services</h3>
+            <p class="layer-desc">APIs and real-time backends: queues over WebSockets, payment webhooks, auth, and model calls with retries and backoff.</p>
+            <p class="layer-tags">Node.js · Express · Next.js · FastAPI · REST · Socket.io · Spring Boot · GraphQL · JWT &amp; OAuth2</p>
+          </li>
+          <li class="layer" data-layer="4" style="--c: var(--ch3)">
+            <p class="layer-idx">L5</p>
+            <h3 class="layer-name">Intelligence</h3>
+            <p class="layer-desc">Model routing, retrieval and evaluation. I have graded LLM output for a living, so I build with the failure modes in mind.</p>
+            <p class="layer-tags">LLM evaluation · RAG · Prompt engineering · Embeddings · LangChain · LangGraph · CrewAI · AutoGen · Hugging Face · Transformers · OpenCV</p>
+          </li>
+          <li class="layer" data-layer="5" style="--c: var(--ink)">
+            <p class="layer-idx">L6</p>
+            <h3 class="layer-name">Interface</h3>
+            <p class="layer-desc">The part people touch: admin dashboards, an Android app with 10K+ downloads, a Chrome extension, and this site.</p>
+            <p class="layer-tags">React · Redux · TypeScript · HTML &amp; CSS · Tailwind · Android (Java) · GSAP · Responsive UI</p>
+          </li>
+        </ol>
+      </div>
+
+      <p class="stack-langs"><span class="kicker-meta">Languages</span> Python · JavaScript · TypeScript · C/C++ · Java · SQL</p>
+    </div>
+  </section>
+
+  <!-- ================================================================ WORK -->
+  <section class="work" id="work" data-scene="work" aria-labelledby="work-title">
+    <div class="work-intro">
+      <div class="wrap">
+        <h2 class="kicker" id="work-title"><span class="kicker-idx">04</span>Selected work<span class="kicker-meta">CH4 · Captures</span></h2>
+      </div>
+      <p class="work-marquee" aria-hidden="true"><span>Selected work</span> <span class="serif">real products</span> <span>Selected work</span> <span class="serif">real constraints</span></p>
+      <div class="wrap">
+        <p class="lede work-lede">Four builds that show how I work. Live links where they exist, source where it's public, and nothing presented as a screenshot that isn't one.</p>
+      </div>
+    </div>
+
+    <!-- 01 · Tokins -->
+    <article class="project project--tokins" id="tokins" data-scene="tokins" style="--c: var(--ch2)" aria-labelledby="tokins-title">
+      <div class="wrap project-grid">
+        <div class="project-copy">
+          <p class="project-meta"><span>01</span><span>2025</span><span>Founder &amp; full-stack engineer</span></p>
+          <h3 class="project-title" id="tokins-title" data-split="chars">Tokins</h3>
+          <p class="project-sub">A live queue and AI admin platform for clinics, pharmacies, retail and service centres.</p>
+          <p class="project-body">Customers scan a QR code, get a token and follow their place in line live instead of standing around. Businesses get an admin panel with analytics, Razorpay payments and automated marketing over email, Telegram, Instagram and voice alerts, driven by an LLM pipeline.</p>
+          <dl class="stats">
+            <div><dt>Businesses served</dt><dd><span data-count="100">100</span>+</dd></div>
+            <div><dt>Shorter average wait</dt><dd><span data-count="40">40</span>%</dd></div>
+            <div><dt>User database in load tests</dt><dd>1M+</dd></div>
+          </dl>
+          <p class="project-tech">React · Node.js · MongoDB · Redis · Socket.io · AWS · Razorpay · Firebase Auth · LLM</p>
+          <p class="project-links">
+            <a class="btn" href="https://tokins.in/" target="_blank" rel="noopener noreferrer">Visit tokins.in <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+            <span class="private-note"><svg aria-hidden="true"><use href="#i-lock"/></svg>Codebase is private</span>
+          </p>
+        </div>
+        <figure class="project-visual browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>tokins.in</span></div>
+          <img src="assets/images/opt/tokins-900.webp" srcset="assets/images/opt/tokins-900.webp 900w, assets/images/opt/tokins-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 55vw" width="1600" height="716" alt="Screenshot of the Tokins landing page: 'Scan. Get a Tokin. Be notified.' with a live ETA, alerts and queue status panel" loading="lazy" decoding="async">
+          <figcaption class="tagline">Screenshot · tokins.in landing page</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 02 · Chills -->
+    <article class="project project--chills" id="chills" data-scene="chills" style="--c: var(--ch4)" aria-labelledby="chills-title">
+      <div class="wrap project-grid project-grid--flip">
+        <div class="project-copy">
+          <p class="project-meta"><span>02</span><span>2026</span><span>Solo build</span></p>
+          <h3 class="project-title" id="chills-title" data-split="chars">Chills</h3>
+          <p class="project-sub">Tailor your resume to any job, approve every change, then email the recruiter with it attached.</p>
+          <p class="project-body">The resume is a LaTeX file and it stays the source of truth. The model may only rewrite the summary, skills and bullet points. Employers, dates and project headings are frozen, so it can't invent a job. Every edit is shown as a diff for approval and spliced into the exact byte range of its macro. An allow-list sanitizer runs last, because a job description is untrusted input and <code>\input</code> or <code>\write18</code> would mean file or shell access at compile time.</p>
+          <p class="project-tech">Next.js · TypeScript · Postgres (Neon + Drizzle) · Claude &amp; Gemini APIs · Zod · Nodemailer · Chrome extension</p>
+          <p class="project-links">
+            <a class="btn" href="https://chills.pro/" target="_blank" rel="noopener noreferrer">Visit chills.pro <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+            <a class="link-arrow ext" href="https://github.com/rider315/Res_Mod" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+          </p>
+        </div>
+        <figure class="project-visual latex" aria-labelledby="latex-cap">
+          <div class="latex-bar" aria-hidden="true"><span>resume.tex</span><span class="latex-tag">Schematic</span></div>
+          <div class="latex-code" role="presentation">
+            <p class="ln ln--frozen" data-ln><span class="ln-no">12</span><code>\resumeSubheading{Acme Labs}{2024}{Engineer}{Remote}</code><span class="ln-badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>frozen</span></p>
+            <p class="ln ln--del" data-ln><span class="ln-no">13</span><code>\resumeItem{Worked on backend services.}</code><span class="ln-badge">− original</span></p>
+            <p class="ln ln--add" data-ln><span class="ln-no">13</span><code>\resumeItem{Built Node.js APIs behind a Redis cache.}</code><span class="ln-badge">+ approved</span></p>
+            <p class="ln ln--edit" data-ln><span class="ln-no">21</span><code>\skillLine{Languages: Python, TypeScript, SQL}</code><span class="ln-badge">editable</span></p>
+            <p class="ln ln--block" data-ln><span class="ln-no">22</span><code>\resumeItem{Led the migration \write18{sh run.sh}}</code><span class="ln-badge">✕ rejected</span></p>
+          </div>
+          <figcaption class="tagline" id="latex-cap">Schematic, not a screenshot: how an edit moves through Chills. Frozen macros are never touched, approved edits are spliced by byte range, and a rewrite carrying <b>\write18</b> is rejected by the sanitizer.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 03 · Smart Surveillance -->
+    <article class="project project--vision" id="vision" data-scene="vision" style="--c: var(--ch1)" aria-labelledby="vision-title">
+      <div class="wrap">
+        <div class="vision-stage">
+          <figure class="vision-feed" aria-labelledby="vision-cap">
+            <svg viewBox="0 0 800 450" role="img" aria-label="Illustration of a camera viewfinder over a parking lot with detection boxes" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="vf-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0"/><stop offset="1" stop-color="currentColor" stop-opacity=".35"/></linearGradient>
+              </defs>
+              <g class="vf-lot" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.2">
+                <path d="M60 430 L300 170 M180 430 L360 170 M300 430 L420 170 M420 430 L480 170 M540 430 L540 170 M660 430 L600 170 M780 430 L660 170"/>
+                <path d="M120 365 H700 M190 290 H640 M250 225 H600 M290 180 H580"/>
+              </g>
+              <g class="vf-boxes" fill="none" stroke-width="2">
+                <rect class="vf-box vf-box--a" x="200" y="300" width="130" height="80" rx="3"/>
+                <rect class="vf-box vf-box--b" x="455" y="235" width="100" height="62" rx="3"/>
+                <rect class="vf-box vf-box--c" x="350" y="188" width="74" height="44" rx="3"/>
+              </g>
+              <g class="vf-hud" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M30 70 V30 H70 M730 30 H770 V70 M770 380 V420 H730 M70 420 H30 V380"/>
+                <path d="M400 210 v30 M385 225 h30" stroke-opacity=".6"/>
+              </g>
+              <rect class="vf-scan" x="0" y="0" width="800" height="70" fill="url(#vf-fade)" data-ambient/>
+            </svg>
+            <div class="vision-readouts" aria-hidden="true">
+              <span>ESP32-CAM</span><span>OpenCV DNN</span><span>up to 30 FPS</span>
+            </div>
+            <figcaption class="tagline" id="vision-cap">Illustration, not footage: the camera, detector and parking-occupancy idea from the paper.</figcaption>
+          </figure>
+
+          <div class="project-copy vision-copy">
+            <p class="project-meta"><span>03</span><span>2024</span><span>IEEE AIIoT 2024</span></p>
+            <h3 class="project-title" id="vision-title" data-split="chars">Smart Surveillance</h3>
+            <p class="project-sub">Edge object detection on an ESP32-CAM, for surveillance and parking occupancy.</p>
+            <p class="project-body">OpenCV deep-learning detection tuned to fit the tight compute budget of a low-cost ESP32-CAM module, analysing live video at up to 30 FPS. Published and presented at the 3rd International Conference on AI for IoT (AIIoT 2024) with Shreya Pathak, Vikas Choudhary, Love Chauhan and Abhishek N Tripathi.</p>
+            <p class="project-tech">Python · OpenCV · Deep learning · ESP32-CAM · IoT</p>
+            <p class="project-links">
+              <a class="btn" href="https://ieeexplore.ieee.org/document/10574574" target="_blank" rel="noopener noreferrer">Read the paper on IEEE Xplore <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 · Lastone -->
+    <article class="project project--lastone" id="lastone" data-scene="lastone" style="--c: var(--chm)" aria-labelledby="lastone-title">
+      <div class="wrap lastone-grid">
+        <p class="lastone-num" aria-hidden="true"><span data-count="10">10</span>K<span class="lastone-plus">+</span></p>
+        <div class="project-copy">
+          <p class="project-meta"><span>04</span><span>2023</span><span>Published as Rider Infinity</span></p>
+          <h3 class="project-title" id="lastone-title" data-split="chars">Lastone</h3>
+          <p class="project-sub"><span class="visually-hidden">10K+ downloads. </span>An Android app that puts previous-year exam papers in one place, with 10K+ downloads on Google Play.</p>
+          <p class="project-body">Built so that every VIT student could find past CAT and FAT papers by course code. An admin web panel uploads papers to AWS S3 and syncs the links through Firebase, so new papers show up in the app right away.</p>
+          <p class="lastone-flow" aria-label="Data flow: admin panel to AWS S3 to Firebase to the Android app"><span>Admin panel</span><i aria-hidden="true"></i><span>AWS S3</span><i aria-hidden="true"></i><span>Firebase</span><i aria-hidden="true"></i><span>Android app</span></p>
+          <p class="project-tech">Java · Android · Gradle · Firebase Auth · AWS S3 · Glide · Lottie</p>
+          <p class="project-links">
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.rider_infinity.lastone&amp;hl=en_IN" target="_blank" rel="noopener noreferrer">Google Play <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+            <a class="link-arrow ext" href="https://lastone-admin-315.vercel.app/" target="_blank" rel="noopener noreferrer">Admin panel</a>
+          </p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================================================================= LAB -->
+  <section class="lab section" id="lab" data-scene="lab" aria-labelledby="lab-title">
+    <div class="wrap">
+      <div class="lab-head">
+        <p class="kicker"><span class="kicker-idx">Lab</span>Interactive<span class="kicker-meta">CH3 · Chills v1 · ai.js</span></p>
+        <h2 class="display" id="lab-title" data-split="lines">Watch an LLM request <span class="serif">survive a bad day.</span></h2>
+        <p class="lede">The first version of Chills (Express and MongoDB) sends every prompt through one function, <code>generateContent()</code>. It routes to the configured provider, rejects empty or refusing answers, backs off on rate limits, and repairs truncated JSON before giving up. Pick a provider, inject a fault and run it.</p>
+      </div>
+
+      <div class="router" data-router>
+        <div class="router-bar">
+          <span class="router-file">server/services/ai.js · generateContent()</span>
+          <span class="router-note">Simulation of the real code path · timings compressed 10× · nothing leaves your browser</span>
+        </div>
+
+        <div class="router-body">
+          <form class="router-controls" onsubmit="return false">
+            <fieldset>
+              <legend>Provider</legend>
+              <label><input type="radio" name="provider" value="openrouter" checked><span><b>openrouter/free</b>default</span></label>
+              <label><input type="radio" name="provider" value="gemini"><span><b>gemini-2.5-flash</b>Gemini</span></label>
+              <label><input type="radio" name="provider" value="sambanova"><span><b>Llama-3.3-70B</b>SambaNova</span></label>
+              <label><input type="radio" name="provider" value="cerebras"><span><b>gpt-oss-120b</b>Cerebras</span></label>
+              <label><input type="radio" name="provider" value="puter"><span><b>claude-sonnet</b>Puter</span></label>
+            </fieldset>
+            <fieldset>
+              <legend>Inject a fault</legend>
+              <label><input type="radio" name="fault" value="none" checked><span><b>None</b>happy path</span></label>
+              <label><input type="radio" name="fault" value="429"><span><b>429</b>rate limited</span></label>
+              <label><input type="radio" name="fault" value="weak"><span><b>Weak reply</b>&lt; 50 chars</span></label>
+              <label><input type="radio" name="fault" value="json"><span><b>Bad JSON</b>truncated</span></label>
+            </fieldset>
+            <button class="btn btn-primary router-run" type="button" data-router-run>Send request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </form>
+
+          <div class="router-diagram">
+            <svg viewBox="0 0 760 350" role="img" aria-labelledby="router-svg-t router-svg-d">
+              <title id="router-svg-t">Request path through generateContent</title>
+              <desc id="router-svg-d">A prompt goes to the router, which picks one of five providers. The reply passes a quality gate that can trigger a retry with backoff, then JSON parsing with a repair step.</desc>
+              <g class="r-edges" fill="none">
+                <path class="r-edge" data-edge="in" d="M118 165 H170"/>
+                <path class="r-edge" data-edge="p-openrouter" d="M270 165 C 300 165, 300 45, 330 45"/>
+                <path class="r-edge" data-edge="p-gemini" d="M270 165 C 300 165, 300 105, 330 105"/>
+                <path class="r-edge" data-edge="p-sambanova" d="M270 165 H330"/>
+                <path class="r-edge" data-edge="p-cerebras" d="M270 165 C 300 165, 300 225, 330 225"/>
+                <path class="r-edge" data-edge="p-puter" d="M270 165 C 300 165, 300 285, 330 285"/>
+                <path class="r-edge" data-edge="g-openrouter" d="M500 45 C 530 45, 530 165, 560 165"/>
+                <path class="r-edge" data-edge="g-gemini" d="M500 105 C 530 105, 530 165, 560 165"/>
+                <path class="r-edge" data-edge="g-sambanova" d="M500 165 H560"/>
+                <path class="r-edge" data-edge="g-cerebras" d="M500 225 C 530 225, 530 165, 560 165"/>
+                <path class="r-edge" data-edge="g-puter" d="M500 285 C 530 285, 530 165, 560 165"/>
+                <path class="r-edge" data-edge="out" d="M650 165 H670"/>
+                <path class="r-edge r-edge--retry" data-edge="retry" d="M605 195 C 612 348, 226 348, 220 190"/>
+              </g>
+              <g class="r-nodes">
+                <g class="r-node" data-node="prompt"><rect x="18" y="140" width="100" height="50" rx="10"/><text x="68" y="162">prompt</text><text class="r-sub" x="68" y="178">resume text</text></g>
+                <g class="r-node" data-node="router"><rect x="170" y="140" width="100" height="50" rx="10"/><text x="220" y="162">router</text><text class="r-sub" x="220" y="178">by config</text></g>
+                <g class="r-node r-prov" data-node="openrouter"><rect x="330" y="25" width="170" height="40" rx="8"/><text x="415" y="50">openrouter/free</text></g>
+                <g class="r-node r-prov" data-node="gemini"><rect x="330" y="85" width="170" height="40" rx="8"/><text x="415" y="110">gemini-2.5-flash</text></g>
+                <g class="r-node r-prov" data-node="sambanova"><rect x="330" y="145" width="170" height="40" rx="8"/><text x="415" y="170">Llama-3.3-70B</text></g>
+                <g class="r-node r-prov" data-node="cerebras"><rect x="330" y="205" width="170" height="40" rx="8"/><text x="415" y="230">gpt-oss-120b</text></g>
+                <g class="r-node r-prov" data-node="puter"><rect x="330" y="265" width="170" height="40" rx="8"/><text x="415" y="290">claude-sonnet</text></g>
+                <g class="r-node" data-node="gate"><rect x="560" y="135" width="90" height="60" rx="10"/><text x="605" y="160">quality</text><text x="605" y="176">gate</text></g>
+                <g class="r-node" data-node="json"><rect x="670" y="135" width="74" height="60" rx="10"/><text x="707" y="160">JSON</text><text class="r-sub" x="707" y="176">parse</text></g>
+              </g>
+              <text class="r-retry-label" x="415" y="338">retry · backoff</text>
+              <circle class="r-packet" r="6" cx="-20" cy="-20"/>
+            </svg>
+            <p class="router-status" data-router-status aria-hidden="true">Idle</p>
+          </div>
+
+          <div class="router-log-wrap">
+            <p class="router-log-title">Console</p>
+            <ol class="router-log" data-router-log aria-live="polite" aria-label="Simulation log">
+              <li class="is-dim">Pick a provider and a fault, then send a request.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <p class="lab-foot"><a class="link-arrow ext" href="https://github.com/rider315/Chills/blob/main/server/services/ai.js" target="_blank" rel="noopener noreferrer">Read ai.js on GitHub</a></p>
+    </div>
+  </section>
+
+  <!-- ========================================================= MORE BUILDS -->
+  <section class="more section" id="more" data-scene="more" aria-labelledby="more-title">
+    <div class="wrap">
+      <div class="more-head">
+        <h2 class="kicker" id="more-title"><span class="kicker-idx">+</span>More builds<span class="kicker-meta">Archive · 20+ projects</span></h2>
+        <a class="link-arrow" href="/projects">Full project archive <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="more-list">
+        <li class="more-row">
+          <span class="more-year">2026</span>
+          <div class="more-main">
+            <h3>RAG recommendation agent</h3>
+            <p>Scraper, MiniLM embeddings and FAISS search with Gemini Flash on top and prompt guardrails, served over FastAPI.</p>
+          </div>
+          <span class="more-tech">Python · FAISS · FastAPI</span>
+          <span class="more-links"><a class="ext" href="https://github.com/rider315/SHL_Assessement" target="_blank" rel="noopener noreferrer">Code</a></span>
+        </li>
+        <li class="more-row">
+          <span class="more-year">2026</span>
+          <div class="more-main">
+            <h3>MT5 trading engine</h3>
+            <p>Automated Forex trading on MetaTrader 5 with pluggable strategies, per-trade and daily drawdown limits, dry-run mode and a live web dashboard.</p>
+          </div>
+          <span class="more-tech">Python · MetaTrader 5</span>
+          <span class="more-links"><a class="ext" href="https://github.com/rider315/rider_infinity" target="_blank" rel="noopener noreferrer">Code</a></span>
+        </li>
+        <li class="more-row">
+          <span class="more-year">2026</span>
+          <div class="more-main">
+            <h3>SyncWave Audio</h3>
+            <p>Windows app that plays one system-audio stream on several Bluetooth or wired devices at once, with adaptive buffering and per-device latency controls.</p>
+          </div>
+          <span class="more-tech">C# · .NET 8 WPF · WASAPI · NAudio</span>
+          <span class="more-links"><a class="ext" href="https://github.com/rider315/Wave_Sync" target="_blank" rel="noopener noreferrer">Code</a></span>
+        </li>
+        <li class="more-row" data-preview="assets/images/opt/caremate-900.webp">
+          <span class="more-year">2025</span>
+          <div class="more-main">
+            <h3>CareMate</h3>
+            <p>Django healthcare app with AI diet recommendations, ML disease prediction, dashboards and WhatsApp integration.</p>
+          </div>
+          <span class="more-tech">Django · Python · ML</span>
+          <span class="more-links"><a class="ext" href="https://care-hospital-7kzk.onrender.com/" target="_blank" rel="noopener noreferrer">Live</a><a class="ext" href="https://github.com/rider315/care_hospital" target="_blank" rel="noopener noreferrer">Code</a></span>
+        </li>
+        <li class="more-row" data-preview="assets/images/opt/paperupload-900.webp">
+          <span class="more-year">2024</span>
+          <div class="more-main">
+            <h3>Exam paper distribution</h3>
+            <p>The admin side of Lastone: uploads exam papers to AWS S3 and syncs them to the Android app through Firebase.</p>
+          </div>
+          <span class="more-tech">React · AWS S3 · Firebase</span>
+          <span class="more-links"><a class="ext" href="https://lastone-admin-315.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a></span>
+        </li>
+        <li class="more-row" data-preview="assets/images/opt/trainseat-900.webp">
+          <span class="more-year">2024</span>
+          <div class="more-main">
+            <h3>Train seat allocation</h3>
+            <p>MERN app for seat booking with real-time availability and allocation logic.</p>
+          </div>
+          <span class="more-tech">MongoDB · Express · React · Node</span>
+          <span class="more-links"><a class="ext" href="https://frontend-a7ch.onrender.com/" target="_blank" rel="noopener noreferrer">Live</a><a class="ext" href="https://github.com/rider315/frontend" target="_blank" rel="noopener noreferrer">Code</a></span>
+        </li>
+      </ul>
+      <div class="more-preview" aria-hidden="true"><img alt="" width="900" height="400" decoding="async"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================= CREDENTIALS -->
+  <section class="creds section" id="credentials" data-scene="creds" aria-labelledby="creds-title">
+    <div class="wrap">
+      <h2 class="kicker" id="creds-title"><span class="kicker-idx">05</span>Education &amp; credentials<span class="kicker-meta">CH1 · XY 3:2</span></h2>
+
+      <div class="creds-grid">
+        <div class="edu">
+          <p class="edu-cgpa"><span class="edu-num" data-count="8.36" data-decimals="2">8.36</span><span class="edu-of">/ 10 CGPA</span></p>
+          <h3 class="edu-degree">B.Tech, Electronics and Communication Engineering</h3>
+          <p class="edu-school">Vellore Institute of Technology, Vellore · <time datetime="2021-07">2021</time> → <time datetime="2025-07">2025</time></p>
+          <p class="edu-course tagline">Coursework: Data Structures &amp; Algorithms · DBMS · Operating Systems · OOP</p>
+        </div>
+
+        <div class="pub">
+          <p class="pub-badge">IEEE · AIIoT 2024</p>
+          <h3 class="pub-title">Smart Surveillance Object Detection System</h3>
+          <p class="pub-meta">2024 3rd International Conference on Artificial Intelligence for Internet of Things. Presented in May 2024; Certificate of Presentation from IEEE Madras Section.</p>
+          <a class="link-arrow ext" href="https://ieeexplore.ieee.org/document/10574574" target="_blank" rel="noopener noreferrer">IEEE Xplore</a>
+        </div>
+      </div>
+
+      <ul class="ledger" aria-label="Certifications">
+        <li><time datetime="2024-01">Jan 2024</time><span class="ledger-name">AWS Certified Cloud Practitioner</span><span class="ledger-org">Amazon Web Services</span></li>
+        <li><time datetime="2025-03">Mar 2025</time><span class="ledger-name">Mastering Data Structures &amp; Algorithms using C and C++</span><span class="ledger-org">Udemy</span></li>
+        <li><time datetime="2025-03">Mar 2025</time><span class="ledger-name">Embedded Systems Bare-Metal Programming (STM32)</span><span class="ledger-org">Udemy</span></li>
+        <li><time datetime="2023-11">Nov 2023</time><span class="ledger-name">VLSI Design Internship: RISC-V RV32I RTL in Verilog</span><span class="ledger-org">Maven Silicon</span></li>
+        <li><time datetime="2023-10">Oct 2023</time><span class="ledger-name">Entrepreneurship</span><span class="ledger-org">NPTEL</span></li>
+        <li><time datetime="2023-06">Jun 2023</time><span class="ledger-name">Developing Applications with SQL, Databases, and Django</span><span class="ledger-org">IBM · <a class="ext" href="https://www.coursera.org/verify/6ZP5FS2QGAZS" target="_blank" rel="noopener noreferrer">verify</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================= CONTACT -->
+  <section class="contact section" id="contact" data-scene="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 class="kicker" id="contact-title"><span class="kicker-idx">06</span>Contact<span class="kicker-meta">CH1 · XY 1:2 · signal locked</span></h2>
+      <p class="contact-display display" data-split="lines">Have something <span class="serif">worth building?</span></p>
+      <p class="lede contact-lede">I'm open to full-time AI and full-stack roles, and I take on freelance builds. Email is the fastest way to reach me.</p>
+
+      <div class="contact-grid">
+        <div class="contact-direct">
+          <a class="contact-email" href="mailto:gaurav.chaudhary.865022@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>gaurav.chaudhary.865022<wbr>@gmail.com</span></a>
+          <button class="copy-btn" type="button" data-copy="gaurav.chaudhary.865022@gmail.com"><svg aria-hidden="true"><use href="#i-copy"/></svg><span data-copy-label>Copy address</span></button>
+
+          <ul class="contact-links">
+            <li><a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn<span class="ext" aria-hidden="true"></span></a></li>
+            <li><a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub<span class="ext" aria-hidden="true"></span></a></li>
+            <li><a href="assets/docs/Gaurav-Chaudhary-Resume.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-down"/></svg>Résumé (PDF)</a></li>
+            <li><a href="https://t.me/gaurav_chaudhary111" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-telegram"/></svg>Telegram<span class="ext" aria-hidden="true"></span></a></li>
+            <li><a href="https://codeforces.com/profile/gaurav_111" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-bars"/></svg>Codeforces<span class="ext" aria-hidden="true"></span></a></li>
+          </ul>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <p class="form-title">Or leave a message</p>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" type="text" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone <span class="optional">(optional)</span></label>
+            <input id="cf-phone" type="tel" name="phone" autocomplete="tel">
+          </div>
+          <div class="field field--full">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="form-foot field--full">
+            <button class="btn btn-primary" type="submit" data-magnetic="0.15">Send message <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-sig"><svg viewBox="0 0 40 20" aria-hidden="true"><use href="#lemniscate"/></svg>Gaurav Chaudhary</p>
+        <p class="footer-note">Hand-written HTML, CSS and JavaScript, GSAP for scroll timing, and a canvas oscilloscope drawing a Lissajous figure. Press Running in the corner to stop the motion.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Navigate</h2>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="/projects">Project archive</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/gaurav-chaudhary-03900120b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/rider315" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://t.me/gaurav_chaudhary111" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+          <li><a href="https://www.instagram.com/___mr._gaurav__1/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="mailto:gaurav.chaudhary.865022@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <button class="rewind" type="button" data-rewind="hero-title"><span class="rewind-dial" aria-hidden="true"><svg><use href="#i-up"/></svg></span>Rewind to start</button>
+    </div>
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> Gaurav Chaudhary</span>
+      <button class="hud-run footer-run" type="button" aria-label="Running. Pause background animation"><span class="hud-run-led" aria-hidden="true"></span><span class="hud-run-label">Running</span></button>
+      <span>Bengaluru, India · 12.97° N, 77.59° E</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

@@ -177,13 +177,8 @@ function renderPost(post, slugForCanonical) {
 
   if (!contentfulClient) {
     container.innerHTML = `
-      <p class="blog-error">Blog is not configured.</p>
-      <p style="text-align:center; font-size: 1.6rem;">
-        (Load Contentful SDK + contentful-config.js before blog-post.js)
-      </p>
-      <p style="text-align:center; font-size: 1.6rem;">
-        <a class="read-more" href="./blog.html">Go back to all posts</a>
-      </p>
+      <p class="blog-error">This post couldn't be loaded right now.</p>
+      <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
     `;
     return;
   }
@@ -191,9 +186,7 @@ function renderPost(post, slugForCanonical) {
   if (!post) {
     container.innerHTML = `
       <p class="blog-error">Post not found.</p>
-      <p style="text-align:center; font-size: 1.6rem;">
-        <a class="read-more" href="./blog.html">Go back to all posts</a>
-      </p>
+      <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
     `;
     return;
   }
@@ -237,14 +230,14 @@ function renderPost(post, slugForCanonical) {
     <h1 class="blog-post-title">${escapeHtml(title)}</h1>
 
     <div class="blog-post-meta">
-      ${author ? `<span><i class="fas fa-user"></i> ${escapeHtml(author)}</span>` : ""}
-      <span><i class="far fa-calendar-alt"></i> ${publishDate ? formatDate(publishDate) : ""}</span>
+      ${author ? `<span>${escapeHtml(author)}</span>` : ""}
+      <span>${publishDate ? formatDate(publishDate) : ""}</span>
     </div>
 
     <div class="blog-post-content">${contentHtml}</div>
 
     <div style="margin-top: 3rem;">
-      <a class="read-more" href="./blog.html"><i class="fas fa-arrow-left"></i> Back to all posts</a>
+      <a class="read-more" href="./blog.html">&larr; Back to all posts</a>
     </div>
   `;
 }
@@ -256,10 +249,8 @@ async function initBlogPost() {
   if (!identifier) {
     if (container) {
       container.innerHTML = `
-        <p class="blog-error">Missing post slug or id.</p>
-        <p style="text-align:center; font-size: 1.6rem;">
-          <a class="read-more" href="./blog.html">Go back to all posts</a>
-        </p>
+        <p class="blog-error">That link doesn't point to a post.</p>
+        <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
       `;
     }
     return;
@@ -267,7 +258,7 @@ async function initBlogPost() {
 
   if (container) {
     container.innerHTML = `
-      <p class="blog-loading"><i class="fas fa-spinner fa-spin"></i> Loading post...</p>
+      <p class="blog-loading">Loading post…</p>
     `;
   }
 
