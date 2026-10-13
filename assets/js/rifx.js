@@ -367,6 +367,7 @@
 
   function run() {
     if (running) return;
+    init();
     running = true;
     runBtn.setAttribute("aria-disabled", "true");
     logEl.innerHTML = "";
@@ -409,10 +410,26 @@
 
   form.addEventListener("input", syncOutputs);
   runBtn.addEventListener("click", run);
-
-  var idleBars = makeMarket(20240503);
   syncOutputs();
-  if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas);
-  else window.addEventListener("resize", resize);
-  resize();
+
+  // The desk sits far down the page, so its chart is built only when it comes near the viewport.
+  var idleBars = null;
+  function init() {
+    if (idleBars) return;
+    idleBars = makeMarket(20240503);
+    if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas);
+    else window.addEventListener("resize", resize);
+    resize();
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) {
+        io.disconnect();
+        init();
+      }
+    }, { rootMargin: "150% 0px 150% 0px" });
+    io.observe(root);
+  } else {
+    init();
+  }
 })();
