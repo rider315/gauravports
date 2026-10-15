@@ -2061,6 +2061,63 @@
 }
 
 /* ==========================================================================
+   Notes — the three newest posts, pulled from the CMS by blog-home.js.
+   The card itself is the shared .post-card component in style.css.
+   ========================================================================== */
+
+.notes {
+  --ch: var(--ch2);
+}
+
+.notes-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 40px;
+  margin-top: clamp(24px, 3.2vw, 42px);
+}
+
+.notes-display {
+  max-width: 20ch;
+  font-size: clamp(2.3rem, 5.4vw, 4.6rem);
+}
+
+.notes-head .link-arrow {
+  flex: none;
+  color: var(--ink-2);
+}
+
+.notes-head .link-arrow:hover {
+  color: var(--ink);
+}
+
+.notes-grid {
+  margin-top: clamp(34px, 4.4vw, 60px);
+}
+
+@media (min-width: 1120px) {
+  .notes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* The strip keeps its height while the CMS answers, so the sections below it
+   do not shuffle when the posts land. */
+.notes-grid .post-skel,
+.notes-grid .post-card {
+  min-height: 330px;
+}
+
+.notes-grid .blog-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  padding-block: 20px;
+}
+
+/* ==========================================================================
    Contact
    ========================================================================== */
 

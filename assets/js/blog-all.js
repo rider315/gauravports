@@ -1,137 +1,110 @@
-/**
- * BLOG LIST PAGE ONLY (blog.html) - UPDATED
- * Supports config styles:
- *  - window.CONTENTFUL_CONFIG = { SPACE_ID, ACCESS_TOKEN, ENVIRONMENT }
- *  - window.CONTENTFULCONFIG  = { SPACEID,   ACCESSTOKEN, ENVIRONMENT }
- *
- * Make sure these load BEFORE this file:
- * 1) Contentful SDK: https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js
- * 2) assets/js/contentful-config.js
- */
+/* ==========================================================================
+   Blog archive (/blog.html): every post, newest first, filterable by category.
+   The newest post leads as a wide card; the rest fill the grid.
+   Cards are the shared .post-card component from assets/js/blog-core.js.
+   ========================================================================== */
 
-// 1) Resolve config safely (support both naming conventions)
-const cfg = window.CONTENTFUL_CONFIG || window.CONTENTFULCONFIG;
+(function () {
+  "use strict";
 
-const SPACE_ID = cfg?.SPACE_ID || cfg?.SPACEID || "";
-const ACCESS_TOKEN = cfg?.ACCESS_TOKEN || cfg?.ACCESSTOKEN || "";
-const ENVIRONMENT = cfg?.ENVIRONMENT || "master";
+  var B = window.Blog;
+  var list = document.querySelector("[data-posts]");
+  if (!B || !list) return;
 
-// 2) Create client safely
-const contentfulClient =
-  window.contentful && SPACE_ID && ACCESS_TOKEN
-    ? contentful.createClient({
-        space: SPACE_ID,
-        accessToken: ACCESS_TOKEN,
-        environment: ENVIRONMENT,
-      })
-    : null;
+  var filterBar = document.querySelector("[data-filters]");
+  var count = document.querySelector("[data-count]");
 
-// Format date
-function formatDate(dateString) {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString("en-US", options);
-}
+  var all = [];
+  var active = "*";
 
-// Fetch ALL blog posts
-async function fetchAllBlogPosts() {
-  try {
-    if (!contentfulClient) return [];
+  function note(title, body) {
+    list.innerHTML = '<li><p class="blog-note"><b>' + B.escape(title) + "</b>" + (body || "") + "</p></li>";
+    if (count) count.textContent = "";
+  }
 
-    const response = await contentfulClient.getEntries({
-      content_type: "portfolioBlogPost",
-      order: "-sys.createdAt",
-      include: 2,
+  function plural(n) {
+    return n === 1 ? "1 post" : n + " posts";
+  }
+
+  function render() {
+    var posts = active === "*"
+      ? all
+      : all.filter(function (p) { return B.field(p, "category") === active; });
+
+    if (!posts.length) {
+      list.innerHTML = '<li><p class="blog-note"><b>Nothing filed under that yet.</b>Pick another category.</p></li>';
+    } else {
+      list.innerHTML = posts.map(function (post, i) {
+        // The lead card only makes sense for the unfiltered, newest-first view.
+        var featured = active === "*" && i === 0 && posts.length > 2;
+        return '<li' + (featured ? ' class="is-lead"' : "") + ">" +
+          B.cardHtml(post, i, { featured: featured, heading: "h2" }) + "</li>";
+      }).join("");
+    }
+
+    if (count) {
+      count.textContent = active === "*"
+        ? plural(all.length)
+        : posts.length + " of " + plural(all.length) + " · " + active;
+    }
+  }
+
+  function chip(label, value) {
+    var b = document.createElement("button");
+    b.className = "chip";
+    b.type = "button";
+    b.textContent = label;
+    b.setAttribute("aria-pressed", String(active === value));
+    b.addEventListener("click", function () {
+      active = value;
+      Array.prototype.forEach.call(filterBar.children, function (el) {
+        el.setAttribute("aria-pressed", String(el === b));
+      });
+      render();
     });
-
-    return response?.items || [];
-  } catch (error) {
-    console.error("Error fetching blog posts:", error);
-    return [];
-  }
-}
-
-// Render blog posts (links to blog-post.html)
-function renderBlogPosts(posts) {
-  const blogContainer = document.getElementById("blogContainer");
-  if (!blogContainer) return;
-
-  // Clear, user-friendly error if config/sdk is missing
-  if (!contentfulClient) {
-    blogContainer.innerHTML = `
-      <p class="blog-loading">
-        Posts couldn't be loaded right now. Please check back soon.
-      </p>
-    `;
-    return;
+    return b;
   }
 
-  if (!posts || posts.length === 0) {
-    blogContainer.innerHTML = `
-      <p class="blog-loading">
-        No posts yet. Check back soon.
-      </p>
-    `;
-    return;
+  function buildFilters() {
+    if (!filterBar) return;
+    var seen = [];
+    all.forEach(function (post) {
+      var c = B.field(post, "category");
+      if (c && seen.indexOf(c) === -1) seen.push(c);
+    });
+    if (seen.length < 2) return; // one category is not a choice
+
+    filterBar.innerHTML = "";
+    filterBar.appendChild(chip("All", "*"));
+    seen.sort().forEach(function (c) {
+      var b = chip(c, c);
+      b.style.setProperty("--c", B.channelFor(c)); // a pressed chip takes its category's channel
+      filterBar.appendChild(b);
+    });
+    filterBar.hidden = false;
   }
 
-  let blogHTML = "";
+  B.onReady(function () {
+    if (!B.ready) {
+      note("Posts aren't available right now.", "The CMS credentials are missing from this build. Everything else on the site still works — try the <a class=\"link-arrow\" href=\"/projects\">project archive</a>.");
+      return;
+    }
 
-  posts.forEach((post) => {
-    const fields = post.fields || {};
-    const title = fields.title || "";
-    const excerpt = fields.excerpt || "Read more about this topic...";
-    const category = fields.category || "";
-    const featuredImage = fields.featuredImage;
-    const slug = fields.slug || "";
-    const publishDate = post.sys?.createdAt;
-    const postId = post.sys?.id;
+    list.innerHTML = B.skeletonHtml(6, true);
 
-    const imageUrl = featuredImage?.fields?.file?.url
-      ? `https:${featuredImage.fields.file.url}?w=600&h=400&fit=fill`
-      : "./assets/images/cmsoon.png";
-
-    // Prefer slug URL (SEO), fallback to id
-    const postUrl = slug
-      ? `blog-post.html?slug=${encodeURIComponent(slug)}`
-      : `blog-post.html?post=${encodeURIComponent(postId)}`;
-
-    blogHTML += `
-      <a class="blog-card" href="${postUrl}" style="text-decoration:none;">
-        <img src="${imageUrl}" alt="${title}" class="blog-image" draggable="false">
-        <div class="blog-content">
-          ${category ? `<span class="blog-category">${category}</span>` : ""}
-          <h3 class="blog-title">${title}</h3>
-          <p class="blog-excerpt">${excerpt}</p>
-          <div class="blog-meta">
-            <span class="blog-date">
-              ${publishDate ? formatDate(publishDate) : ""}
-            </span>
-            <span class="read-more">
-              Read more &rarr;
-            </span>
-          </div>
-        </div>
-      </a>
-    `;
+    B.posts({ limit: 200 })
+      .then(function (res) {
+        all = res.items;
+        if (!all.length) {
+          note("No posts yet.", "The first one is being written. Check back soon.");
+          return;
+        }
+        buildFilters();
+        render();
+      })
+      .catch(function (err) {
+        if (window.console) console.error("[blog] could not load posts", err);
+        note("Posts couldn't be loaded.", "The CMS did not answer. Please try again in a moment.");
+      });
   });
-
-  blogContainer.innerHTML = blogHTML;
-}
-
-async function initBlogAll() {
-  const blogContainer = document.getElementById("blogContainer");
-  if (!blogContainer) return;
-
-  blogContainer.innerHTML =
-    '<p class="blog-loading">Loading posts…</p>';
-
-  const posts = await fetchAllBlogPosts();
-  renderBlogPosts(posts);
-}
-
-// Load when DOM is ready
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initBlogAll);
-} else {
-  initBlogAll();
-}
+})();

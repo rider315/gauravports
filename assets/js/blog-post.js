@@ -1,283 +1,231 @@
-/**
- * Blog Post Page - UPDATED
- * Supports config styles:
- *  - window.CONTENTFUL_CONFIG = { SPACE_ID, ACCESS_TOKEN, ENVIRONMENT }
- *  - window.CONTENTFULCONFIG  = { SPACEID,   ACCESSTOKEN, ENVIRONMENT }
- * NOTE: Ensure contentful-config.js is loaded BEFORE this file in blog-post.html. 
- */
+/* ==========================================================================
+   A single post (/blog-post.html).
 
-// ---------- 1) Resolve Contentful config safely ----------
-const cfg = window.CONTENTFUL_CONFIG || window.CONTENTFULCONFIG;
+   Accepts  ?slug=my-post  ·  ?post=<entryId>  ·  /blog/my-post (host rewrite).
+   Renders the article, fills in SEO and structured data, tints the page's
+   oscilloscope with the category's channel, and offers the two neighbouring
+   posts at the end.
+   ========================================================================== */
 
-const SPACE_ID = cfg?.SPACE_ID || cfg?.SPACEID || "";
-const ACCESS_TOKEN = cfg?.ACCESS_TOKEN || cfg?.ACCESSTOKEN || "";
-const ENVIRONMENT = cfg?.ENVIRONMENT || "master";
+(function () {
+  "use strict";
 
-// ---------- 2) Create client safely ----------
-const contentfulClient =
-  window.contentful && SPACE_ID && ACCESS_TOKEN
-    ? contentful.createClient({
-        space: SPACE_ID,
-        accessToken: ACCESS_TOKEN,
-        environment: ENVIRONMENT,
-      })
-    : null;
+  var B = window.Blog;
+  var mount = document.querySelector("[data-post-body]");
+  if (!B || !mount) return;
 
-// Format date
-function formatDate(dateString) {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString("en-US", options);
-}
+  var article = document.querySelector("[data-post]");
 
-/**
- * Supports:
- * 1) blog-post.html?slug=my-post
- * 2) blog-post.html?post=<entryId>
- * 3) /blog/my-post (only if your host rewrites to blog-post.html)
- */
-function getPostIdentifierFromUrl() {
-  const params = new URLSearchParams(window.location.search);
+  /* ------------------------------------------------------------ the request */
 
-  const slug = (params.get("slug") || "").trim();
-  if (slug) return { type: "slug", value: slug };
+  function identifier() {
+    var params = new URLSearchParams(window.location.search);
+    var slug = (params.get("slug") || "").trim();
+    if (slug) return { type: "slug", value: slug };
 
-  const postId = (params.get("post") || "").trim();
-  if (postId) return { type: "id", value: postId };
+    var id = (params.get("post") || "").trim();
+    if (id) return { type: "id", value: id };
 
-  const path = window.location.pathname.replace(/\/+$/, "");
-  const lastSegment = path.split("/").filter(Boolean).pop() || "";
-  if (!lastSegment || lastSegment.endsWith(".html")) return null;
-
-  return { type: "slug", value: lastSegment };
-}
-
-async function fetchPostBySlug(slug) {
-  try {
-    if (!contentfulClient) return null;
-
-    const res = await contentfulClient.getEntries({
-      content_type: "portfolioBlogPost",
-      "fields.slug": slug,
-      limit: 1,
-      include: 2,
-    });
-
-    return res?.items?.[0] || null;
-  } catch (err) {
-    console.error("Error fetching blog post by slug:", err);
-    return null;
+    // /blog/my-post, where the host rewrites to this file.
+    var last = window.location.pathname.replace(/\/+$/, "").split("/").filter(Boolean).pop() || "";
+    if (!last || /\.html$/.test(last)) return null;
+    return { type: "slug", value: decodeURIComponent(last) };
   }
-}
 
-async function fetchPostById(entryId) {
-  try {
-    if (!contentfulClient) return null;
-
-    const res = await contentfulClient.getEntries({
-      "sys.id": entryId,
-      limit: 1,
-      include: 2,
-    });
-
-    return res?.items?.[0] || null;
-  } catch (err) {
-    console.error("Error fetching blog post by id:", err);
-    return null;
+  function note(title, body) {
+    mount.innerHTML = '<p class="blog-note"><b>' + B.escape(title) + "</b>" + (body || "") +
+      '</p><p class="post-tail"><a class="link-arrow" href="/blog.html">All posts ' + arrow() + "</a></p>";
   }
-}
 
-// Simple safety: prevents accidental HTML injection from plain text fields
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+  function arrow() {
+    return '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
 
-// Minimal rich-text renderer (headings/paragraphs/bullets)
-function parseRichText(richText) {
-  if (!richText || !richText.content) return "";
+  /* ------------------------------------------------------------------- SEO */
 
-  let html = "";
-  richText.content.forEach((node) => {
-    if (node.nodeType === "paragraph") {
-      const text = node.content?.map((c) => c.value || "").join("") || "";
-      html += `<p>${escapeHtml(text)}</p>`;
-    } else if (node.nodeType === "heading-1") {
-      const text = node.content?.map((c) => c.value || "").join("") || "";
-      html += `<h2>${escapeHtml(text)}</h2>`;
-    } else if (node.nodeType === "heading-2") {
-      const text = node.content?.map((c) => c.value || "").join("") || "";
-      html += `<h3>${escapeHtml(text)}</h3>`;
-    } else if (node.nodeType === "unordered-list") {
-      html += "<ul>";
-      node.content?.forEach((item) => {
-        const text =
-          item.content?.[0]?.content?.map((c) => c.value || "").join("") || "";
-        html += `<li>${escapeHtml(text)}</li>`;
+  function setMeta(id, attr, value) {
+    var el = document.getElementById(id);
+    if (el) el.setAttribute(attr, value || "");
+  }
+
+  function canonicalFor(post) {
+    var slug = B.field(post, "slug");
+    return window.location.origin + (slug ? "/blog/" + encodeURIComponent(slug) : window.location.pathname + window.location.search);
+  }
+
+  function seo(post, cover) {
+    var title = B.field(post, "title");
+    var description = B.excerptOf(post, 160);
+    var url = canonicalFor(post);
+    var author = B.field(post, "author") || "Gaurav Chaudhary";
+    var published = B.publishedAt(post);
+
+    document.title = (title ? title + " · " : "") + "Notes · Gaurav Chaudhary";
+    setMeta("metaDescription", "content", description);
+    setMeta("canonicalLink", "href", url);
+    setMeta("ogTitle", "content", title);
+    setMeta("ogDescription", "content", description);
+    setMeta("ogImage", "content", cover || (window.location.origin + "/assets/images/og-cover.png"));
+    setMeta("ogUrl", "content", url);
+
+    var jsonLd = document.getElementById("jsonLd");
+    if (jsonLd) {
+      jsonLd.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description: description,
+        image: cover ? [cover] : undefined,
+        datePublished: published || undefined,
+        dateModified: (post.sys && post.sys.updatedAt) || published || undefined,
+        author: { "@type": "Person", name: author },
+        publisher: { "@type": "Person", name: "Gaurav Chaudhary" },
+        mainEntityOfPage: { "@type": "WebPage", "@id": url }
       });
-      html += "</ul>";
     }
-  });
-
-  return html;
-}
-
-function setSeo({ title, description, imageUrl, canonicalUrl, publishedTime, author }) {
-  document.title = title ? `${title} | Blog` : "Blog Post";
-
-  const metaDesc = document.getElementById("metaDescription");
-  if (metaDesc) metaDesc.setAttribute("content", description || "");
-
-  const canonical = document.getElementById("canonicalLink");
-  if (canonical) canonical.setAttribute("href", canonicalUrl || window.location.href);
-
-  const ogTitle = document.getElementById("ogTitle");
-  if (ogTitle) ogTitle.setAttribute("content", title || "");
-
-  const ogDesc = document.getElementById("ogDescription");
-  if (ogDesc) ogDesc.setAttribute("content", description || "");
-
-  const ogImg = document.getElementById("ogImage");
-  if (ogImg) ogImg.setAttribute("content", imageUrl || "");
-
-  const ogUrl = document.getElementById("ogUrl");
-  if (ogUrl) ogUrl.setAttribute("content", canonicalUrl || window.location.href);
-
-  const jsonLd = document.getElementById("jsonLd");
-  if (jsonLd) {
-    const data = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: title || "",
-      description: description || "",
-      image: imageUrl ? [imageUrl] : undefined,
-      datePublished: publishedTime || undefined,
-      author: author ? { "@type": "Person", name: author } : undefined,
-      mainEntityOfPage: canonicalUrl || window.location.href,
-    };
-
-    jsonLd.textContent = JSON.stringify(data);
-  }
-}
-
-function toAbsoluteUrl(url) {
-  if (!url) return "";
-  if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  // handles "./assets/..." or "/assets/..."
-  const cleaned = url.replace(/^\.\//, "");
-  return `${window.location.origin}/${cleaned}`.replace(/([^:]\/)\/+/g, "$1");
-}
-
-function renderPost(post, slugForCanonical) {
-  const container = document.getElementById("blogPostContainer");
-  if (!container) return;
-
-  if (!contentfulClient) {
-    container.innerHTML = `
-      <p class="blog-error">This post couldn't be loaded right now.</p>
-      <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
-    `;
-    return;
   }
 
-  if (!post) {
-    container.innerHTML = `
-      <p class="blog-error">Post not found.</p>
-      <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
-    `;
-    return;
+  /* --------------------------------------------------------------- the post */
+
+  function render(post) {
+    var title = B.field(post, "title") || "Untitled";
+    var category = B.field(post, "category");
+    var author = B.field(post, "author");
+    var image = B.field(post, "featuredImage");
+    var content = B.field(post, "content");
+    var date = B.publishedAt(post);
+    var mins = B.readingTime(content);
+    var standfirst = B.field(post, "excerpt");
+    var ch = B.channel(category);
+    var cover = B.imageUrl(image, { w: 1600 });
+
+    if (article) article.style.setProperty("--c", ch.css);
+
+    var head = '<header class="post-head">' +
+      '<p class="post-kicker">' +
+        (category ? '<span class="post-cat">' + B.escape(category) + "</span>" : "") +
+        (date ? "<span>" + B.escape(B.formatDate(date, { day: "numeric", month: "long", year: "numeric" })) + "</span>" : "") +
+      "</p>" +
+      '<h1 class="post-h1">' + B.escape(title) + "</h1>" +
+      (standfirst ? '<p class="post-standfirst">' + B.escape(standfirst) + "</p>" : "") +
+      '<div class="post-byline">' +
+        "<span>" + (author ? "By <b>" + B.escape(author) + "</b>" : "By <b>Gaurav Chaudhary</b>") + "</span>" +
+        (mins ? '<span class="dot">' + B.escape(mins) + "</span>" : "") +
+        '<button class="copy-link" type="button" data-copy>' +
+          '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 3.5v-.2A1.3 1.3 0 0 0 9.2 2H3.3A1.3 1.3 0 0 0 2 3.3v5.9a1.3 1.3 0 0 0 1.3 1.3h.2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>' +
+          "<span data-copy-label>Copy link</span>" +
+        "</button>" +
+      "</div>" +
+    "</header>";
+
+    var figure = cover
+      ? '<figure class="post-cover"><img src="' + B.escape(cover) + '" alt="' + B.escape(B.imageAlt(image, title)) + '" width="1600" height="900" fetchpriority="high" decoding="async">' +
+        (image.fields.description ? "<figcaption>" + B.escape(image.fields.description) + "</figcaption>" : "") +
+        "</figure>"
+      : "";
+
+    var body = B.richTextToHtml(content);
+
+    mount.innerHTML = head + figure +
+      '<div class="post-copy">' + (body || "<p>This post has no body yet.</p>") + "</div>" +
+      '<nav class="post-more" aria-label="More posts" data-more hidden><h2>Keep reading</h2><div class="post-grid" data-more-grid></div></nav>' +
+      '<p class="post-tail"><a class="link-arrow" href="/blog.html">All posts ' + arrow() + "</a></p>";
+
+    seo(post, cover);
+    wireCopy();
+
+    // The signal behind the page takes the category's channel. The scope may not
+    // have started yet (page-scope.js waits for load + idle), so leave the tint
+    // where it will pick it up and also apply it if it is already running.
+    var tint = { cr: ch.rgb[0], cg: ch.rgb[1], cb: ch.rgb[2], label: ch.label };
+    window.ScopeTint = tint;
+    if (window.Scope) window.Scope.set(tint);
+
+    neighbours(post);
   }
 
-  const fields = post.fields || {};
-  const title = fields.title || "";
-  const content = fields.content;
-  const category = fields.category || "";
-  const featuredImage = fields.featuredImage;
-  const author = fields.author || "";
-  const excerpt = fields.excerpt || "";
-  const publishDate = post.sys?.createdAt;
+  function wireCopy() {
+    var btn = mount.querySelector("[data-copy]");
+    if (!btn) return;
+    var label = btn.querySelector("[data-copy-label]");
+    btn.addEventListener("click", function () {
+      var url = (document.getElementById("canonicalLink") || {}).href || window.location.href;
+      var done = function () {
+        btn.setAttribute("data-copied", "1");
+        if (label) label.textContent = "Link copied";
+        setTimeout(function () {
+          btn.removeAttribute("data-copied");
+          if (label) label.textContent = "Copy link";
+        }, 2200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, function () { window.prompt("Copy this link", url); });
+      } else {
+        window.prompt("Copy this link", url);
+      }
+    });
+  }
 
-  const imageUrl = featuredImage?.fields?.file?.url
-    ? `https:${featuredImage.fields.file.url}?w=1200&h=600&fit=fill`
-    : "./assets/images/cmsoon.png";
+  /* The post before and after this one, so a reader has somewhere to go. */
+  function neighbours(post) {
+    var wrap = mount.querySelector("[data-more]");
+    var grid = mount.querySelector("[data-more-grid]");
+    if (!wrap || !grid) return;
 
-  const contentHtml =
-    content && content.content
-      ? parseRichText(content)
-      : typeof content === "string"
-        ? `<p>${escapeHtml(content)}</p>`
-        : "";
+    B.posts({ limit: 100 })
+      .then(function (res) {
+        var id = post.sys && post.sys.id;
+        var items = res.items.filter(function (p) { return p.sys && p.sys.id !== id; });
+        if (!items.length) return;
 
-  const canonicalUrl = slugForCanonical
-    ? `${window.location.origin}/blog/${encodeURIComponent(slugForCanonical)}`
-    : window.location.href;
+        var at = -1;
+        res.items.forEach(function (p, i) { if (p.sys && p.sys.id === id) at = i; });
 
-  setSeo({
-    title,
-    description: excerpt,
-    imageUrl: toAbsoluteUrl(imageUrl),
-    canonicalUrl,
-    publishedTime: publishDate,
-    author,
-  });
+        var picks = [];
+        if (at > -1) {
+          if (res.items[at + 1]) picks.push(res.items[at + 1]); // older
+          if (res.items[at - 1]) picks.push(res.items[at - 1]); // newer
+        }
+        while (picks.length < 2 && items.length) {
+          var next = items.shift();
+          if (picks.indexOf(next) === -1) picks.push(next);
+        }
 
-  container.innerHTML = `
-    <img src="${imageUrl}" alt="${escapeHtml(title || "Blog image")}" class="blog-post-image">
-    ${category ? `<span class="blog-category">${escapeHtml(category)}</span>` : ""}
-    <h1 class="blog-post-title">${escapeHtml(title)}</h1>
+        grid.innerHTML = picks.slice(0, 2).map(function (p, i) { return B.cardHtml(p, i); }).join("");
+        wrap.hidden = false;
+      })
+      .catch(function () { /* the article itself is what matters */ });
+  }
 
-    <div class="blog-post-meta">
-      ${author ? `<span>${escapeHtml(author)}</span>` : ""}
-      <span>${publishDate ? formatDate(publishDate) : ""}</span>
-    </div>
+  /* ------------------------------------------------------------------- boot */
 
-    <div class="blog-post-content">${contentHtml}</div>
-
-    <div style="margin-top: 3rem;">
-      <a class="read-more" href="./blog.html">&larr; Back to all posts</a>
-    </div>
-  `;
-}
-
-async function initBlogPost() {
-  const container = document.getElementById("blogPostContainer");
-  const identifier = getPostIdentifierFromUrl();
-
-  if (!identifier) {
-    if (container) {
-      container.innerHTML = `
-        <p class="blog-error">That link doesn't point to a post.</p>
-        <p><a class="read-more" href="./blog.html">&larr; Go back to all posts</a></p>
-      `;
+  B.onReady(function () {
+    if (!B.ready) {
+      note("This post can't be loaded right now.", "The CMS credentials are missing from this build.");
+      return;
     }
-    return;
-  }
 
-  if (container) {
-    container.innerHTML = `
-      <p class="blog-loading">Loading post…</p>
-    `;
-  }
+    var who = identifier();
+    if (!who) {
+      note("That link doesn't point to a post.", "It may have been shortened or mistyped.");
+      return;
+    }
 
-  let post = null;
-  let slugForCanonical = null;
+    mount.innerHTML = '<p class="blog-note"><b>Loading post…</b></p>';
 
-  if (identifier.type === "slug") {
-    slugForCanonical = identifier.value;
-    post = await fetchPostBySlug(identifier.value);
-  } else {
-    post = await fetchPostById(identifier.value);
-    slugForCanonical = post?.fields?.slug || null;
-  }
+    var lookup = who.type === "slug" ? B.postBySlug(who.value) : B.postById(who.value);
 
-  renderPost(post, slugForCanonical);
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initBlogPost);
-} else {
-  initBlogPost();
-}
+    lookup
+      .then(function (post) {
+        if (!post) {
+          note("Post not found.", "It may have been unpublished or renamed.");
+          return;
+        }
+        render(post);
+      })
+      .catch(function (err) {
+        if (window.console) console.error("[blog] could not load post", err);
+        note("The post couldn't be loaded.", "The CMS did not answer. Please try again in a moment.");
+      });
+  });
+})();

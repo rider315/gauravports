@@ -164,6 +164,9 @@
         return S({ a: 3, b: 2, tilt: 0.4, cx: mob ? 0.5 : 0.84, cy: 0.5, sx: 0.22, sy: 0.22, intensity: mob ? 0.18 : 0.3, label: "CH4" }, CH4);
       case "creds":
         return S({ a: 3, b: 2, tilt: 0.36, cx: mob ? 0.5 : 0.8, cy: 0.42, sx: mob ? 0.4 : 0.26, sy: mob ? 0.3 : 0.3, intensity: mob ? 0.28 : 0.55, label: "CH1" }, CH1);
+      case "notes":
+        // Writing: a calm 2:3 figure parked beside the cards.
+        return S({ a: 2, b: 3, beta: 0.25, tilt: 0.44, cx: mob ? 0.5 : 0.76, cy: mob ? 0.3 : 0.46, sx: mob ? 0.42 : 0.26, sy: mob ? 0.3 : 0.3, intensity: mob ? 0.22 : 0.46, ribbon: 0.6, label: "CH2" }, CH2);
       case "contact":
         return S({ a: 1, b: 2, tilt: 0.3, cx: mob ? 0.5 : 0.64, cy: mob ? 0.3 : 0.4, sx: mob ? 0.46 : 0.5, sy: mob ? 0.26 : 0.27, intensity: 1.05, ribbon: 1.5, lock: 1, label: "CH1" }, CH1);
     }
@@ -596,6 +599,10 @@
           opacity: 0, y: 24, duration: 0.8, ease: "power3.out", stagger: 0.06,
           scrollTrigger: { trigger: ".rifx-facts", start: "top 86%", toggleActions: "play none none reverse" }
         });
+      });
+
+      whenNear($(".notes"), function () {
+        revealIn($(".notes"));
       });
 
       whenNear($(".side"), function () {

@@ -25,6 +25,9 @@
 
   // Decoration only: start once the page has loaded and the main thread is idle.
   function start() {
+    // A page may tint the signal before it starts — a blog post takes the
+    // channel of its category (see assets/js/blog-post.js).
+    if (window.ScopeTint) merge(preset, window.ScopeTint);
     var ok = window.Site.startScope({ canvas: document.getElementById("scope"), state: preset });
     if (!ok) return;
 

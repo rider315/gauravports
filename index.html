@@ -55,6 +55,10 @@
   <script defer src="./assets/js/home.js"></script>
   <script defer src="./assets/js/console.js"></script>
   <script defer src="./assets/js/rifx.js"></script>
+  <!-- Blog: generated CMS credentials, the shared data layer, then the home strip. -->
+  <script defer src="./assets/js/contentful-config.js"></script>
+  <script defer src="./assets/js/blog-core.js"></script>
+  <script defer src="./assets/js/blog-home.js"></script>
 </head>
 <body class="page-home">
 
@@ -855,6 +859,23 @@
         <li><time datetime="2023-10">Oct 2023</time><span class="ledger-name">Entrepreneurship</span><span class="ledger-org">NPTEL</span></li>
         <li><time datetime="2023-06">Jun 2023</time><span class="ledger-name">Developing Applications with SQL, Databases, and Django</span><span class="ledger-org">IBM · <a class="ext" href="https://www.coursera.org/verify/6ZP5FS2QGAZS" target="_blank" rel="noopener noreferrer">verify</a></span></li>
       </ul>
+    </div>
+  </section>
+
+  <!-- =============================================================== NOTES -->
+  <section class="notes section" id="notes" data-scene="notes" aria-labelledby="notes-title">
+    <div class="wrap">
+      <h2 class="kicker" id="notes-title"><span class="kicker-idx">LOG</span>Notes<span class="kicker-meta">CH2 · newest first</span></h2>
+
+      <div class="notes-head">
+        <p class="display notes-display" data-split="lines">Writing it down <span class="serif">is how I debug my own thinking.</span></p>
+        <a class="link-arrow" href="/blog.html">All posts <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <!-- The three newest posts land here; see assets/js/blog-home.js. -->
+      <div class="post-grid notes-grid" data-notes>
+        <p class="blog-note"><b>Notes are published from the CMS.</b><a class="link-arrow" href="/blog.html">Open the blog <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+      </div>
     </div>
   </section>
 
