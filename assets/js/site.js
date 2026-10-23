@@ -277,26 +277,4 @@
     }
   });
 
-  /* ------------------------------------------- Tawk.to chat, loaded late */
-  function loadTawk() {
-    if (window.Tawk_API && window.Tawk_API.loaded) return;
-    window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_LoadStart = new Date();
-    var s1 = document.createElement("script");
-    s1.async = true;
-    s1.src = "https://embed.tawk.to/676ab3c3af5bfec1dbe11e4e/1ifscsdoh";
-    s1.charset = "UTF-8";
-    s1.setAttribute("crossorigin", "*");
-    document.body.appendChild(s1);
-  }
-  // The chat widget loads on the visitor's first interaction, so it never competes with the first render.
-  window.addEventListener("load", function () {
-    var events = ["pointerdown", "keydown", "scroll", "touchstart"];
-    var go = function () {
-      events.forEach(function (ev) { window.removeEventListener(ev, go); });
-      var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1); };
-      setTimeout(function () { idle(loadTawk); }, 1500);
-    };
-    events.forEach(function (ev) { window.addEventListener(ev, go, { passive: true }); });
-  });
 })();
